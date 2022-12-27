@@ -1,0 +1,55 @@
+:root {
+  --slider-connect-bg: #027f25;
+  --slider-bg: #f6f6f6;
+  --slider-height: 0.4rem;
+  --slider-radius: 0.4rem;
+
+  --slider-handle-width: 20px;
+  --slider-handle-height: 20px;
+  --slider-handle-radius: 20px;
+  --slider-handle-bg: #39af5c;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 150;
+  src: url('/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 150;
+  src: url('/fonts/Circe-Bold.otf') format('opentype');
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  background-color: #f6f6f6;
+  font-family: 'Inter', arial, sans-serif;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  z-index: 3;
+}

@@ -1,0 +1,58 @@
+<template>
+  <div :class="$style.root">
+    <a href="https://lk.otlnal.ru/login/">
+      <img src="/logo.svg" alt="Отличные Наличные" :class="$style.logo_img" />
+    </a>
+    <div :class="$style.login">
+      <a href="https://lk.otlnal.ru/login/">
+        <img src="/sign.svg" alt="Отличные наличные вход" :class="$style.sign"/>
+        <div :class="$style.login_title">Личный кабинет</div>
+      </a>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" module>
+.root {
+  background-color: #41c24c;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  @media (min-width: 18rem) {
+    justify-content: space-between;
+  }  
+
+  padding: 3rem 3.6rem 0;
+  @media (min-width: 42.8rem) {
+    padding: 4rem 3.6rem 0;
+  }
+  @media (min-width: 83.4rem) {
+    padding: 3.3rem 10rem 0;
+  }
+}
+.logo_img {
+  padding-top: 3.2rem 0;
+}
+.login {
+  color: #ffffff;
+  display: flex;
+  a {
+    color: #ffffff;
+    display: flex;
+  }
+}
+.login_title {
+  margin-left: 1.2rem;
+  display: none;
+  @media (min-width: 27.5rem) {
+    display: inline;
+  }
+}
+.sign {
+  display: none;
+  @media (min-width: 18rem) {
+    display: inline;
+  }
+}
+</style>
