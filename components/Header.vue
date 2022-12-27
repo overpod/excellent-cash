@@ -17,18 +17,18 @@
   background-color: #41c24c;
   display: flex;
   align-items: center;
-
   justify-content: center;
+  padding: 3rem 2rem 0;
   @media (min-width: 18rem) {
     justify-content: space-between;
-  }  
-
-  padding: 3rem 3.6rem 0;
-  @media (min-width: 42.8rem) {
-    padding: 4rem 3.6rem 0;
   }
-  @media (min-width: 83.4rem) {
-    padding: 3.3rem 10rem 0;
+  @media (min-width: 40rem) {
+    padding: 4rem 4rem 0;
+    justify-content: space-between;
+  }
+  @media (min-width: 75rem) {
+    padding: 6rem 4rem 0;
+    justify-content: space-between;
   }
 }
 .logo_img {

@@ -1,6 +1,9 @@
 <template>
   <div :class="$style.root">
-    <div :class="$style.girl"/>
+    <div :class="$style.girl">
+      <img src="/girl.png" alt="Наличные быстро" :class="$style.girl_img" />
+      <img src="/girl_big.png" alt="Наличные быстро" :class="$style.girl_img_big" />
+    </div> 
     <div :class="$style.benefits">
       <div :class="$style.benefit_first">
         <div :class="$style.title_wrap">
@@ -58,29 +61,57 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 48.6rem;
-  @media (min-width: 52.125rem) {
-    padding-top: 14rem;
-  }  
+  background: #41c24c;
+  padding-top: 40rem;
+  @media (min-width: 40rem) {
+    padding-top: 12rem;
+  }
+  @media (min-width: 60rem) {
+    padding-top: 22rem;
+  }
+  @media (min-width: 75rem) {
+    padding-top: 10rem;
+  }
+  @media (min-width: 90rem) {
+    padding-top: 18rem;
+  }
 }
 .girl {
   position: absolute;
-  width: 34.1rem;
-  height: 45.1rem;
-  background-image: url("/girl.png");
-  background-repeat: no-repeat, no-repeat;
-  top: 4rem;
-  @media (min-width: 52.125rem) {
-    top: -20rem;
-    right: 0;
+}
+
+.girl_img {
+  width: 26rem;
+  position: relative;
+  top: -32rem;
+  @media (min-width: 18.75rem) {
+    width: 30rem;
+    top: -36rem;
+  }
+  @media (min-width: 40rem) {
+    top: -28rem;
+    right: -16rem;
+  }
+  @media (min-width: 60rem) {
+    display: none;
+  }
+}
+.girl_img_big {
+  display: none;
+  position: relative;
+  @media (min-width: 60rem) {
+    display: inline;
+    top: -42rem;
+    right: -24rem;
+  }
+  @media (min-width: 75rem) {
+    top: -42rem;
+    right: -24rem;    
   }
   @media (min-width: 90rem) {
-    width: 45.8rem;
-    height: 54rem;
-    background-image: url("/girl_big.png");
-    top: -36rem;
-    right: 6rem;    
-  }
+    top: -54rem;
+    right: -24rem;   
+  }  
 }
 .benefits {
   z-index: 2;
@@ -88,48 +119,51 @@
   background-color: #027f25;
   color: #ffffff;
   border-radius: 2rem;
-  padding: 0.8rem;
+  padding: 3rem 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem 0;
-  @media (min-width: 24.125rem) {
-    padding: 3rem;
-  }
-  @media (min-width: 52.125rem) {
-    padding: 4rem;
+  @media (min-width: 40rem) {
+    margin: 0 4rem;
+    padding: 3rem 1.8rem;
+    gap: 2.4rem 2.2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 2.6rem;
+    border-radius: 3.4rem;
+  }
+  @media (min-width: 60rem) {
+    padding: 4rem 5rem;
+    gap: 5.2rem 4rem;
   }
   @media (min-width: 90rem) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 0;
-  }
+  } 
 }
 .benefit_first {
   @media (min-width: 90rem) {
-    border-right: #39AF5C 0.1rem solid;
+    border-right: #39af5c 0.1rem solid;
     padding-right: 3rem;
-  }  
+  }
 }
 .benefit {
   @media (min-width: 90rem) {
-    border-right: #39AF5C 0.1rem solid;
+    border-right: #39af5c 0.1rem solid;
     padding: 0 3rem;
   }
 }
 .benefit_last {
   @media (min-width: 90rem) {
     padding-left: 3rem;
-  }  
+  }
 }
 .title {
   margin: 0;
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
-  font-weight: 70rem;
+  font-weight: 7rem;
   font-size: 3.2rem;
   line-height: 100%;
 }
@@ -143,9 +177,8 @@
 }
 .benefit_icon {
   margin-right: 1rem;
-
   display: none;
-  @media (min-width: 21.5rem) {
+  @media (min-width: 18.75rem) {
     display: inline;
   }
 }

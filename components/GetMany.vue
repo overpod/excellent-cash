@@ -5,23 +5,23 @@
       <div>деньги на карту</div>
       <div>сегодня в {{ time }}</div>
     </h1>
-    <h1 :class="$style.title_mini_mobile">Получите деньги на карту сегодня в {{ time }}</h1>
     <h1 :class="$style.title">
       <div>Получите деньги</div>
       <div>на карту сегодня</div>
       <div>в {{ time }}</div>
     </h1>
     <div :class="$style.button_wrap">
-      <a :class="$style.button" href="https://lk.otlnal.ru/login/">Получить деньги</a>
+      <a href="https://lk.otlnal.ru/login/">
+        <div :class="$style.button">Получить деньги</div>
+      </a>
     </div>
-    <Benefits />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 
-import { getTime } from '../utils'
+import { getTime } from '../utils';
 
 export default defineComponent({
   name: 'GetMany',
@@ -45,54 +45,41 @@ export default defineComponent({
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 3.6rem;
-  @media (min-width: 42.8rem) {
-    padding: 0 3.6rem;
-  }
-  @media (min-width: 83.4rem) {
-    padding: 0 10rem;
-  }
-}
-.title_mobile {
-  margin: 0;
-  padding-top: 10.2rem;
-  font-family: 'Circe', arial, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 5rem;
-  line-height: 100%;
-  color: #fff;
-  text-align: center;
-  display: none;
-  @media (min-width: 26.875rem) {
-    display: inline;
-  }
-  @media (min-width: 52.125rem) {
-    display: none;
+  padding: 0 2rem;
+  @media (min-width: 40rem) {
+    padding: 0 4rem;
   }
 }
 .title {
   margin: 0;
-  padding-top: 10.2rem;
-  font-family: 'Circe', arial, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 8rem;
-  line-height: 100%;
-  color: #fff;
-  display: none;
-  width: 100%;
-  @media (min-width: 52.125rem) {
-    display: inline;
-  }
-}
-.title_mini_mobile {
-  margin: 0;
-  padding-top: 10.2rem;
+  padding-top: 8.4rem;
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 5rem;
+  line-height: 100%;
+  color: #fff;
+  display: none;
+  width: 100%;
+  @media (min-width: 40rem) {
+    display: inline;
+  }
+  @media (min-width: 60rem) {
+    padding-top: 8.8rem;
+    font-size: 8rem;
+  }
+  @media (min-width: 75rem) {
+    padding-top: 13.4rem;
+    font-size: 8rem;
+  }
+}
+.title_mobile {
+  margin: 0;
+  padding-top: 4.8rem;
+  font-family: 'Circe', arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.6rem;
   line-height: 100%;
   color: #fff;
   display: flex;
@@ -100,20 +87,18 @@ export default defineComponent({
   align-items: center;
   display: inline;
   text-align: center;
-  @media (min-width: 26.875rem) {
+  @media (min-width: 40rem) {
     display: none;
   }
 }
 .button_wrap {
   width: 100%;
-  display: flex;
-  justify-content: center;
   @media (min-width: 52.125rem) {
     display: inline;
   }
 }
 .button {
-  margin-top: 3rem;
+  margin-top: 1.6rem;
   background-color: #f6a607;
   border-radius: 1.6rem;
   font-family: 'Inter', arial, sans-serif;
@@ -128,6 +113,8 @@ export default defineComponent({
   justify-content: center;
   color: #ffffff;
   text-align: center;
-  max-width: 25.8rem;
+  @media (min-width: 40rem) {
+    width: 25.8rem;
+  }
 }
 </style>
