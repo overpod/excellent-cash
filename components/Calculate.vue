@@ -70,7 +70,12 @@
         {{ time }}</span
       >
       <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
-      <span :class="$style.info_value">{{ totalTitle }}</span>
+      <span v-if="tabIndex !== 3" :class="$style.info_value"
+        >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
+      >
+      <span v-if="tabIndex === 3" :class="$style.info_value">
+        {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
+      </span>
       <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
         ><div :class="$style.button_chart">График выплат</div>
       </a>
@@ -78,14 +83,26 @@
     <div :class="$style.info_all">
       <div :class="$style.info_all_left">
         <span :class="$style.info_all_title">Вы получаете</span>
-        <span :class="$style.info_all_value"
-          >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
-          {{ time }}</span
-        >
+        <span :class="$style.info_all_value">{{
+          formattedSum(tabResult.sum, tabParams.sumCurrency)
+        }}</span>
+        <span :class="$style.info_all_value">сегодня в {{ time }}</span>
       </div>
       <div :class="$style.info_all_right">
         <span :class="$style.info_all_title">Вы возвращаете</span>
-        <span :class="$style.info_all_value">{{ totalTitle }}</span>
+        <span v-if="tabIndex !== 3" :class="$style.info_all_value">{{
+          totalTitle.sum
+        }}</span>
+        <span v-if="tabIndex !== 3" :class="$style.info_all_value"
+          >до {{ totalTitle.date }}</span
+        >
+        <span v-if="tabIndex === 3" :class="$style.info_all_value">{{
+          totalTitle.oneTitle
+        }}</span>
+        <span v-if="tabIndex === 3" :class="$style.info_all_value"
+          >{{ totalTitle.twoTitle }} каждые</span
+        >
+        <span v-if="tabIndex === 3" :class="$style.info_all_value">две недели</span>
       </div>
     </div>
   </template>
@@ -109,7 +126,6 @@
       <div :class="$style.free">бесплатно и круглосуточно</div>
     </div>
   </template>
-
   <div :class="$style.button_wrap" v-if="tabIndex !== 4">
     <a href="https://lk.otlnal.ru/login/"
       ><div :class="$style.button_link">Взять займ</div></a
@@ -279,18 +295,26 @@ export default defineComponent({
           month: 'numeric',
           day: 'numeric',
         });
-        return `${formattedSum(
-          totalSum,
-          tabParams.value.sumCurrency
-        )} до ${formattedDate}`;
+        return {
+          sum: formattedSum(totalSum, tabParams.value.sumCurrency),
+          date: formattedDate,
+          oneTitle: null,
+          twoTitle: null,
+        };
       }
 
       const paymentsCount = tabResult.value.period / 7 / 2;
-      return `${paymentsCount} ${plural(paymentsCount, [
-        'платеж',
-        'платежа',
-        'платежей',
-      ])} по ${formattedSum(totalSum, tabParams.value.sumCurrency)} каждые две недели`;
+
+      return {
+        sum: formattedSum(totalSum, tabParams.value.sumCurrency),
+        date: null,
+        oneTitle: `${paymentsCount} ${plural(paymentsCount, [
+          'платеж',
+          'платежа',
+          'платежей',
+        ])}`,
+        twoTitle: `по ${formattedSum(totalSum, tabParams.value.sumCurrency)}`,
+      };
     });
 
     const formattedSum = (number: number, sumCurrency: string) =>
@@ -416,6 +440,7 @@ export default defineComponent({
 
 .select_wrap {
   width: 100%;
+  z-index: 2;
 }
 
 .select {
@@ -428,6 +453,7 @@ export default defineComponent({
   background-color: #fff;
   padding: 1.6rem;
   width: -webkit-fill-available;
+  position: static;
 }
 
 .calc {
@@ -525,7 +551,6 @@ export default defineComponent({
   font-size: 30px;
   line-height: 88%;
   color: #282828;
-  width: 11.8rem;
 }
 
 .info_label {
@@ -586,7 +611,7 @@ export default defineComponent({
   padding: 5rem 3.6rem 5rem 3.6rem;
   background-color: #fff;
   @media (min-width: 40rem) {
-    padding: 4rem 4rem 0 4rem;
+    padding: 4rem;
   }
 }
 .button_link {
