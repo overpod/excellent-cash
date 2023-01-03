@@ -1,7 +1,8 @@
 <template>
   <div :class="$style.root">
     <div :class="$style.title_wrap">
-      <h2 :class="$style.title">Выберите сумму<br />и срок займа</h2>
+      <h2 :class="$style.title_mobile">Выберите сумму<br />и срок займа</h2>
+      <h2 :class="$style.title">Выберите сумму и срок займа</h2>
     </div>
     <div :class="$style.select_wrap" v-click-away="onClickAway">
       <div :class="$style.select" @click="tabSelectClick">
@@ -76,7 +77,7 @@
     <div :class="[$style.calc, $style.calc_tab]">
       <div :class="$style.label">
         <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-        <span>Получить новый займ<dr />на индивидуальных условиях</span>
+        <span>Получить новый займ<br />на индивидуальных условиях</span>
       </div>
       <div :class="$style.label">
         <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
@@ -101,7 +102,8 @@
       ><div :class="$style.button_chart">График выплат</div>
     </a>
     <div :class="$style.button_title">
-      на карту за 15 минут<br />сегодня получили займ 2 304 клиента
+      на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2 304
+      клиента
     </div>
   </div>
 </template>
@@ -356,22 +358,29 @@ export default defineComponent({
 
 <style lang="scss" module>
 .root {
+  color: #fff;
   background-color: #41c24c;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 6rem 3.6rem 3rem 3.6rem;
-
-  @media (min-width: 42.8rem) {
-    padding: 0 3.6rem;
+  @media (min-width: 40rem) {
+    padding: 5rem 4rem 3rem 4rem;
   }
+}
 
-  @media (min-width: 83.4rem) {
-    padding: 0 10rem;
+.title_mobile {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 100%;
+  margin: 0;
+  display: inline;
+  @media (min-width: 40rem) {
+    display: none;
   }
-
-  color: #fff;
 }
 
 .title {
@@ -381,6 +390,10 @@ export default defineComponent({
   font-size: 3.6rem;
   line-height: 100%;
   margin: 0;
+  display: none;
+  @media (min-width: 40rem) {
+    display: inline;
+  }
 }
 
 .title_wrap {
@@ -407,13 +420,11 @@ export default defineComponent({
 .calc {
   background-color: #fff;
   padding: 3.6rem 3.6rem 0 3.6rem;
-
   @media (min-width: 42.8rem) {
     padding: 0 3.6rem;
   }
-
-  @media (min-width: 83.4rem) {
-    padding: 0 10rem;
+  @media (min-width: 40rem) {
+    padding: 3rem 4rem 0 4rem;
   }
 }
 
@@ -458,8 +469,8 @@ export default defineComponent({
   padding-top: 3.4rem;
   padding: 3.4rem 3.6rem 0 3.6rem;
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .info_label {
@@ -519,6 +530,9 @@ export default defineComponent({
 .button_wrap {
   padding: 5rem 3.6rem 0 3.6rem;
   background-color: #fff;
+  @media (min-width: 40rem) {
+    padding: 4rem 4rem 0 4rem;
+  }
 }
 .button_link {
   background-color: #f6a607;
@@ -538,6 +552,12 @@ export default defineComponent({
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #808080;
+}
+.br_mobile {
+  display: inline;
+  @media (min-width: 40rem) {
+    display: none;
+  }
 }
 .button_chart {
   margin-top: 2rem;
