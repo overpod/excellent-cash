@@ -78,6 +78,7 @@
 }
 .girl {
   position: absolute;
+  z-index: 1;
 }
 
 .girl_img {
