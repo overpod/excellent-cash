@@ -63,7 +63,7 @@
         <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
       </div>
     </div>
-    <div :class="$style.info">
+    <div :class="$style.info_mobile">
       <span :class="$style.info_label">Вы получаете</span>
       <span :class="$style.info_value"
         >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
@@ -71,6 +71,22 @@
       >
       <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
       <span :class="$style.info_value">{{ totalTitle }}</span>
+      <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
+        ><div :class="$style.button_chart">График выплат</div>
+      </a>
+    </div>
+    <div :class="$style.info_all">
+      <div :class="$style.info_all_left">
+        <span :class="$style.info_all_title">Вы получаете</span>
+        <span :class="$style.info_all_value"
+          >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
+          {{ time }}</span
+        >
+      </div>
+      <div :class="$style.info_all_right">
+        <span :class="$style.info_all_title">Вы возвращаете</span>
+        <span :class="$style.info_all_value">{{ totalTitle }}</span>
+      </div>
     </div>
   </template>
   <template v-if="tabIndex === 4">
@@ -98,9 +114,6 @@
     <a href="https://lk.otlnal.ru/login/"
       ><div :class="$style.button_link">Взять займ</div></a
     >
-    <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
-      ><div :class="$style.button_chart">График выплат</div>
-    </a>
     <div :class="$style.button_title">
       на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2 304
       клиента
@@ -465,16 +478,58 @@ export default defineComponent({
   justify-content: space-between;
 }
 
-.info {
+.info_mobile {
   padding-top: 3.4rem;
   padding: 3.4rem 3.6rem 0 3.6rem;
   background-color: #fff;
   display: grid;
   grid-template-columns: 1fr;
+  @media (min-width: 40rem) {
+    display: none;
+  }
+}
+
+.info_all {
+  background-color: #fff;
+  display: none;
+  @media (min-width: 40rem) {
+    display: flex;
+    padding: 3.4rem 4rem 0 4rem;
+    justify-content: space-between;
+  }
+}
+.info_all_left {
+  display: flex;
+  flex-direction: column;
+}
+
+.info_all_right {
+  display: flex;
+  flex-direction: column;
+}
+
+.info_all_title {
+  font-family: 'Inter', arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: -0.025em;
+  color: #808080;
+  padding-bottom: 2rem;
+}
+.info_all_value {
+  font-family: 'Circe', arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 88%;
+  color: #282828;
+  width: 11.8rem;
 }
 
 .info_label {
-  font-family: 'Inter';
+  font-family: 'Inter', arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 1.8rem;
@@ -528,7 +583,7 @@ export default defineComponent({
   background-color: #f6f6f6;
 }
 .button_wrap {
-  padding: 5rem 3.6rem 0 3.6rem;
+  padding: 5rem 3.6rem 5rem 3.6rem;
   background-color: #fff;
   @media (min-width: 40rem) {
     padding: 4rem 4rem 0 4rem;
@@ -629,5 +684,6 @@ export default defineComponent({
   text-align: center;
   letter-spacing: -0.025em;
   color: #808080;
+  padding-bottom: 5rem;
 }
 </style>

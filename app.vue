@@ -5,4 +5,5 @@
   <client-only>
     <Calculate />
   </client-only>
+  <Excellence />
 </template>
