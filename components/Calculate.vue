@@ -24,123 +24,315 @@
       </Transition>
     </div>
   </div>
-  <template v-if="tabIndex !== 4">
-    <div :class="$style.calc">
-      <div :class="$style.calc_title">Желаемая сумма</div>
-      <div :class="$style.calc_value">
-        {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
-      </div>
-      <Slider
-        v-model="tabResult.sum"
-        :min="tabParams.minSum"
-        :max="tabParams.maxSum"
-        :step="tabParams.sumStep"
-        :tooltips="false"
-        :class="$style.slider"
-        :lazy="false"
-      />
-      <div :class="$style.min_max">
-        <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
-        <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
-      </div>
-    </div>
-    <div :class="$style.calc">
-      <div :class="$style.calc_title">Срок займа</div>
-      <div :class="$style.calc_value">
-        {{ formattedPeriod(tabResult.period) }}
-      </div>
-      <Slider
-        v-model="tabResult.period"
-        :min="tabParams.minPeriod"
-        :max="tabParams.maxPeriod"
-        :step="tabParams.periodStep"
-        :tooltips="false"
-        :class="$style.slider"
-        :lazy="false"
-      />
-      <div :class="$style.min_max">
-        <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
-        <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
-      </div>
-    </div>
-    <div :class="$style.info_mobile">
-      <span :class="$style.info_label">Вы получаете</span>
-      <span :class="$style.info_value"
-        >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
-        {{ time }}</span
-      >
-      <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
-      <span v-if="tabIndex !== 3" :class="$style.info_value"
-        >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
-      >
-      <span v-if="tabIndex === 3" :class="$style.info_value">
-        {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
-      </span>
-      <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
-        ><div :class="$style.button_chart">График выплат</div>
-      </a>
-    </div>
-    <div :class="$style.info_all">
-      <div :class="$style.info_all_left">
-        <span :class="$style.info_all_title">Вы получаете</span>
-        <span :class="$style.info_all_value">{{
-          formattedSum(tabResult.sum, tabParams.sumCurrency)
-        }}</span>
-        <span :class="$style.info_all_value">сегодня в {{ time }}</span>
-      </div>
-      <div :class="$style.info_all_right">
-        <span :class="$style.info_all_title">Вы возвращаете</span>
-        <span v-if="tabIndex !== 3" :class="$style.info_all_value">{{
-          totalTitle.sum
-        }}</span>
-        <span v-if="tabIndex !== 3" :class="$style.info_all_value"
-          >до {{ totalTitle.date }}</span
-        >
-        <span v-if="tabIndex === 3" :class="$style.info_all_value">{{
-          totalTitle.oneTitle
-        }}</span>
-        <span v-if="tabIndex === 3" :class="$style.info_all_value"
-          >{{ totalTitle.twoTitle }} каждые</span
-        >
-        <span v-if="tabIndex === 3" :class="$style.info_all_value">две недели</span>
-      </div>
-    </div>
-  </template>
-  <template v-if="tabIndex === 4">
-    <div :class="[$style.calc, $style.calc_tab]">
-      <div>
-        <div :class="$style.label">
-          <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-          <span>Получить новый займ<br />на индивидуальных условиях</span>
-        </div>
-        <div :class="$style.label">
-          <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-          <span>Увеличить лимит<br />до необходимой суммы</span>
-        </div>
-        <div :class="$style.label">
-          <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-          <span>Перенести срок возврата<br />займа</span>
-        </div>
-      </div>
-      <div :class="$style.vector">
-        <img src="/right-arrow.svg" alt="Получить новый займ" />
-      </div>
-      <div>
-        <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-        <div :class="$style.private">в личном кабинете</div>
-        <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
-        <div :class="$style.free">бесплатно и круглосуточно</div>
-      </div>
-    </div>
-  </template>
-  <div :class="$style.button_wrap" v-if="tabIndex !== 4">
-    <a href="https://lk.otlnal.ru/login/"
-      ><div :class="$style.button_link">Взять займ</div></a
+  <div :class="$style.desktop_tabs">
+    <div
+      v-for="tab in tabs"
+      :class="[$style.desktop_tab, tab.id === tabIndex && $style.desktop_tab_active]"
+      @click="tabClick(tab.id)"
     >
-    <div :class="$style.button_title">
-      на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2 304
-      клиента
+      {{ tab.title }}
     </div>
+  </div>
+  <div :class="$style.mobile_tabs">
+    <template v-if="tabIndex !== 4">
+      <div :class="$style.calc">
+        <div :class="$style.calc_title">Желаемая сумма</div>
+        <div :class="$style.calc_value">
+          {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
+        </div>
+        <Slider
+          v-model="tabResult.sum"
+          :min="tabParams.minSum"
+          :max="tabParams.maxSum"
+          :step="tabParams.sumStep"
+          :tooltips="false"
+          :class="$style.slider"
+          :lazy="false"
+        />
+        <div :class="$style.min_max">
+          <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
+          <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
+        </div>
+      </div>
+      <div :class="$style.calc">
+        <div :class="$style.calc_title">Срок займа</div>
+        <div :class="$style.calc_value">
+          {{ formattedPeriod(tabResult.period) }}
+        </div>
+        <Slider
+          v-model="tabResult.period"
+          :min="tabParams.minPeriod"
+          :max="tabParams.maxPeriod"
+          :step="tabParams.periodStep"
+          :tooltips="false"
+          :class="$style.slider"
+          :lazy="false"
+        />
+        <div :class="$style.min_max">
+          <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
+          <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
+        </div>
+      </div>
+      <div :class="$style.info_mobile">
+        <span :class="$style.info_label">Вы получаете</span>
+        <span :class="$style.info_value"
+          >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
+          {{ time }}</span
+        >
+        <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
+        <span v-if="tabIndex !== 3" :class="$style.info_value"
+          >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
+        >
+        <span v-if="tabIndex === 3" :class="$style.info_value">
+          {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
+        </span>
+        <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
+          ><div :class="$style.button_chart">График выплат</div>
+        </a>
+      </div>
+      <div :class="$style.info_all">
+        <div :class="$style.info_all_left">
+          <span :class="$style.info_all_title">Вы получаете</span>
+          <span :class="$style.info_all_value">{{
+            formattedSum(tabResult.sum, tabParams.sumCurrency)
+          }}</span>
+          <span :class="$style.info_all_value">сегодня в {{ time }}</span>
+          <a
+            v-if="tabIndex === 3"
+            href="https://lk.otlnal.ru/registration"
+            target="_blank"
+            ><div :class="$style.button_chart">График выплат</div>
+          </a>
+        </div>
+        <div :class="$style.info_all_right">
+          <span :class="$style.info_all_title">Вы возвращаете</span>
+          <span v-if="tabIndex !== 3" :class="$style.info_all_value">{{
+            totalTitle.sum
+          }}</span>
+          <span v-if="tabIndex !== 3" :class="$style.info_all_value"
+            >до {{ totalTitle.date }}</span
+          >
+          <span v-if="tabIndex === 3" :class="$style.info_all_value">{{
+            totalTitle.oneTitle
+          }}</span>
+          <span v-if="tabIndex === 3" :class="$style.info_all_value"
+            >{{ totalTitle.twoTitle }} каждые</span
+          >
+          <span v-if="tabIndex === 3" :class="$style.info_all_value">две недели</span>
+        </div>
+      </div>
+    </template>
+    <template v-if="tabIndex === 4">
+      <div :class="[$style.calc, $style.calc_tab]">
+        <div>
+          <div :class="$style.label">
+            <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+            <span>Получить новый займ<br />на индивидуальных условиях</span>
+          </div>
+          <div :class="$style.label">
+            <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+            <span>Увеличить лимит<br />до необходимой суммы</span>
+          </div>
+          <div :class="$style.label">
+            <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+            <span>Перенести срок возврата<br />займа</span>
+          </div>
+        </div>
+        <div :class="$style.vector">
+          <img src="/right-arrow.svg" alt="Получить новый займ" />
+        </div>
+        <div>
+          <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
+          <div :class="$style.private">в личном кабинете</div>
+          <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
+          <div :class="$style.free">бесплатно и круглосуточно</div>
+        </div>
+      </div>
+    </template>
+    <div :class="$style.button_wrap" v-if="tabIndex !== 4">
+      <a href="https://lk.otlnal.ru/login/"
+        ><div :class="$style.button_link">Взять займ</div></a
+      >
+      <div :class="$style.button_title">
+        на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2 304
+        клиента
+      </div>
+    </div>
+  </div>
+  <div :class="$style.desktop_tab_wrap">
+    <div :class="$style.desktop_tab_body" v-if="tabIndex !== 4">
+      <div>
+        <div :class="$style.calc_title">Желаемая сумма</div>
+        <div :class="$style.calc_value">
+          {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
+        </div>
+        <Slider
+          v-model="tabResult.sum"
+          :min="tabParams.minSum"
+          :max="tabParams.maxSum"
+          :step="tabParams.sumStep"
+          :tooltips="false"
+          :class="$style.slider"
+          :lazy="false"
+        />
+        <div :class="$style.min_max">
+          <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
+          <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
+        </div>
+        <div :class="$style.info_all_left">
+          <span :class="[$style.info_all_title, $style.info_all_title_desktop]"
+            >Вы получаете</span
+          >
+          <span :class="$style.info_all_value"
+            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
+            {{ time }}</span
+          >
+        </div>
+        <a href="https://lk.otlnal.ru/login/"
+          ><div :class="[$style.button_link, $style.button_link_desktop]">
+            Взять займ
+          </div></a
+        >
+      </div>
+      <div>
+        <div :class="$style.calc_title">Срок займа</div>
+        <div :class="$style.calc_value">
+          {{ formattedPeriod(tabResult.period) }}
+        </div>
+        <Slider
+          v-model="tabResult.period"
+          :min="tabParams.minPeriod"
+          :max="tabParams.maxPeriod"
+          :step="tabParams.periodStep"
+          :tooltips="false"
+          :class="$style.slider"
+          :lazy="false"
+        />
+        <div :class="$style.min_max">
+          <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
+          <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
+        </div>
+        <span
+          :class="[
+            $style.info_label,
+            $style.two_info_label,
+            $style.two_info_label_desktop,
+          ]"
+          >Вы возвращаете</span
+        >
+        <span v-if="tabIndex !== 3" :class="[$style.info_value]"
+          >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
+        >
+        <span v-if="tabIndex === 3" :class="$style.info_value">
+          {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
+        </span>
+        <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
+          ><div :class="$style.button_chart">График выплат</div>
+        </a>
+      </div>
+    </div>
+
+    <div :class="$style.desktop_tab_body_1200" v-if="tabIndex !== 4">
+      <div>
+        <div :class="$style.calc_title">Желаемая сумма</div>
+        <div :class="$style.calc_value">
+          {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
+        </div>
+        <Slider
+          v-model="tabResult.sum"
+          :min="tabParams.minSum"
+          :max="tabParams.maxSum"
+          :step="tabParams.sumStep"
+          :tooltips="false"
+          :class="$style.slider"
+          :lazy="false"
+        />
+        <div :class="$style.min_max">
+          <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
+          <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
+        </div>
+        <a href="https://lk.otlnal.ru/login/"
+          ><div :class="[$style.button_link, $style.button_link_desktop]">
+            Взять займ
+          </div></a
+        >
+      </div>
+      <div>
+        <div :class="$style.calc_title">Срок займа</div>
+        <div :class="$style.calc_value">
+          {{ formattedPeriod(tabResult.period) }}
+        </div>
+        <Slider
+          v-model="tabResult.period"
+          :min="tabParams.minPeriod"
+          :max="tabParams.maxPeriod"
+          :step="tabParams.periodStep"
+          :tooltips="false"
+          :class="$style.slider"
+          :lazy="false"
+        />
+        <div :class="$style.min_max">
+          <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
+          <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
+        </div>
+        <div :class="[$style.button_title, $style.button_title_1200]">
+          на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2 304
+          клиента
+        </div>
+      </div>
+      <div>
+        <span :class="[$style.info_all_title, $style.info_1200]">Вы получаете</span>
+        <span :class="$style.info_all_value"
+          >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
+          {{ time }}</span
+        >
+        <span
+          :class="[
+            $style.info_label,
+            $style.two_info_label,
+            $style.two_info_label_desktop,
+          ]"
+          >Вы возвращаете</span
+        >
+        <span v-if="tabIndex !== 3" :class="[$style.info_value]"
+          >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
+        >
+        <span v-if="tabIndex === 3" :class="$style.info_value">
+          {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
+        </span>
+        <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
+          ><div :class="$style.button_chart">График выплат</div>
+        </a>
+      </div>
+    </div>
+
+    <template v-if="tabIndex === 4">
+      <div :class="[$style.calc, $style.calc_tab, $style.calc_tab_desktop]">
+        <div>
+          <div :class="$style.label">
+            <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+            <span>Получить новый займ<br />на индивидуальных условиях</span>
+          </div>
+          <div :class="$style.label">
+            <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+            <span>Увеличить лимит<br />до необходимой суммы</span>
+          </div>
+          <div :class="$style.label">
+            <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+            <span>Перенести срок возврата<br />займа</span>
+          </div>
+        </div>
+        <div :class="$style.vector">
+          <img src="/right-arrow.svg" alt="Получить новый займ" />
+        </div>
+        <div>
+          <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
+          <div :class="$style.private">в личном кабинете</div>
+          <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
+          <div :class="$style.free">бесплатно и круглосуточно</div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -380,6 +572,7 @@ export default defineComponent({
     };
 
     return {
+      tabs,
       time,
       tabIndex,
       tabTitle,
@@ -412,6 +605,46 @@ export default defineComponent({
   @media (min-width: 40rem) {
     padding: 5rem 4rem 3rem 4rem;
   }
+  @media (min-width: 60rem) {
+    padding: 9rem 4rem 5rem 4rem;
+  }
+}
+.mobile_tabs {
+  @media (min-width: 60rem) {
+    display: none;
+  }
+}
+.desktop_tab_wrap {
+  display: none;
+  @media (min-width: 60rem) {
+    display: block;
+    background-color: #41c24c;
+    padding: 0 4rem 5rem 4rem;
+  }
+}
+.desktop_tab_body {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5rem 4rem;
+  border-radius: 0 0 3.5rem 3.5rem;
+  column-gap: 8rem;
+  @media (min-width: 75rem) {
+    display: none;
+  }
+}
+
+.desktop_tab_body_1200 {
+  display: none;
+  @media (min-width: 75rem) {
+    display: block;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5rem 4rem;
+    border-radius: 0 0 3.5rem 3.5rem;
+    column-gap: 5rem;
+  }
 }
 
 .title_mobile {
@@ -436,7 +669,10 @@ export default defineComponent({
   margin: 0;
   display: none;
   @media (min-width: 40rem) {
-    display: inline;
+    display: block;
+  }
+  @media (min-width: 60rem) {
+    font-size: 4.5rem;
   }
 }
 
@@ -448,6 +684,9 @@ export default defineComponent({
 .select_wrap {
   width: 100%;
   z-index: 2;
+  @media (min-width: 60rem) {
+    display: none;
+  }
 }
 
 .select {
@@ -551,6 +790,12 @@ export default defineComponent({
   color: #808080;
   padding-bottom: 2rem;
 }
+.info_all_title_desktop {
+  padding-top: 3.6rem;
+}
+.info_1200 {
+  display: block;
+}
 .info_all_value {
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
@@ -582,6 +827,14 @@ export default defineComponent({
 
 .two_info_label {
   padding-top: 3rem;
+}
+
+.two_info_label_desktop {
+  @media (min-width: 60rem) {
+    width: 100%;
+    display: block;
+    padding: 3.6rem 0 2rem 0;
+  }
 }
 
 .tabs_wrap {
@@ -630,6 +883,11 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 }
+.button_link_desktop {
+  @media (min-width: 60rem) {
+    margin-top: 6rem;
+  }
+}
 .button_title {
   padding-top: 2rem;
   font-family: 'Inter', arial, sans-serif;
@@ -639,6 +897,9 @@ export default defineComponent({
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #808080;
+}
+.button_title_1200 {
+  padding-top: 6rem;
 }
 .br_mobile {
   display: inline;
@@ -680,8 +941,14 @@ export default defineComponent({
     display: grid;
     grid-template-columns: 1fr 8rem 1fr;
     justify-items: center;
-    align-items: center;;
-    padding-bottom: 5rem
+    align-items: center;
+    padding-bottom: 5rem;
+  }
+}
+.calc_tab_desktop {
+  @media (min-width: 60rem) {
+    padding: 5rem 4rem;
+    border-radius: 0 0 3.5rem 3.5rem;
   }
 }
 .vector {
@@ -730,7 +997,7 @@ export default defineComponent({
   @media (min-width: 40rem) {
     font-size: 2.8rem;
     text-align: left;
-  }  
+  }
 }
 .free {
   font-family: 'Inter', arial, sans-serif;
@@ -746,6 +1013,31 @@ export default defineComponent({
     padding-top: 1rem;
     font-size: 1.4rem;
     text-align: left;
-  }    
+  }
+}
+.desktop_tabs {
+  display: none;
+  @media (min-width: 60rem) {
+    display: block;
+    padding: 0 4rem;
+    background-color: #41c24c;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 0.2rem;
+  }
+}
+.desktop_tab {
+  background: #027f25;
+  border-radius: 1.6rem 1.6rem 0 0;
+  color: #ffffff;
+  padding: 1.2rem;
+  justify-items: center;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+.desktop_tab_active {
+  color: #444247;
+  background-color: #fff;
 }
 </style>
