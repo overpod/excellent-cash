@@ -367,7 +367,7 @@ export default defineComponent({
       time.value = getTime();
     }, 60000);
 
-    const tabIndex = ref<TabIndex>(4);
+    const tabIndex = ref<TabIndex>(1);
 
     const tabList = computed(() => {
       return tabs.filter((tab) => tab.id !== tabIndex.value);
