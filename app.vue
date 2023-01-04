@@ -6,4 +6,6 @@
     <Calculate />
   </client-only>
   <Excellence />
+
+  <GetMoneyInMinutes/>
 </template>
