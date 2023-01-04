@@ -4,9 +4,9 @@
   --slider-height: 0.4rem;
   --slider-radius: 0.4rem;
 
-  --slider-handle-width: 20px;
-  --slider-handle-height: 20px;
-  --slider-handle-radius: 20px;
+  --slider-handle-width: 2rem;
+  --slider-handle-height: 2rem;
+  --slider-handle-radius: 2rem;
   --slider-handle-bg: #39af5c;
 }
 

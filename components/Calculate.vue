@@ -108,22 +108,29 @@
   </template>
   <template v-if="tabIndex === 4">
     <div :class="[$style.calc, $style.calc_tab]">
-      <div :class="$style.label">
-        <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-        <span>Получить новый займ<br />на индивидуальных условиях</span>
+      <div>
+        <div :class="$style.label">
+          <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+          <span>Получить новый займ<br />на индивидуальных условиях</span>
+        </div>
+        <div :class="$style.label">
+          <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+          <span>Увеличить лимит<br />до необходимой суммы</span>
+        </div>
+        <div :class="$style.label">
+          <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+          <span>Перенести срок возврата<br />займа</span>
+        </div>
       </div>
-      <div :class="$style.label">
-        <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-        <span>Увеличить лимит<br />до необходимой суммы</span>
+      <div :class="$style.vector">
+        <img src="/right-arrow.svg" alt="Получить новый займ" />
       </div>
-      <div :class="$style.label">
-        <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-        <span>Перенести срок возврата<br />займа</span>
+      <div>
+        <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
+        <div :class="$style.private">в личном кабинете</div>
+        <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
+        <div :class="$style.free">бесплатно и круглосуточно</div>
       </div>
-      <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-      <div :class="$style.private">в личном кабинете</div>
-      <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
-      <div :class="$style.free">бесплатно и круглосуточно</div>
     </div>
   </template>
   <div :class="$style.button_wrap" v-if="tabIndex !== 4">
@@ -168,7 +175,7 @@ export default defineComponent({
       time.value = getTime();
     }, 60000);
 
-    const tabIndex = ref<TabIndex>(1);
+    const tabIndex = ref<TabIndex>(4);
 
     const tabList = computed(() => {
       return tabs.filter((tab) => tab.id !== tabIndex.value);
@@ -538,7 +545,7 @@ export default defineComponent({
   font-family: 'Inter', arial, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #808080;
@@ -548,7 +555,7 @@ export default defineComponent({
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 3rem;
   line-height: 88%;
   color: #282828;
 }
@@ -590,13 +597,13 @@ export default defineComponent({
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #444247;
   border-radius: 1.6rem;
   z-index: 3;
-  box-shadow: 0 2px 10px rgb(151 168 176 / 70%);
+  box-shadow: 0 0.2rem 1rem rgb(151 168 176 / 70%);
 }
 
 .tab {
@@ -649,7 +656,7 @@ export default defineComponent({
   letter-spacing: -0.025em;
   text-decoration-line: underline;
   color: #808080;
-  text-underline-offset: 5px;
+  text-underline-offset: 0.5rem;
 }
 .label {
   display: flex;
@@ -669,6 +676,19 @@ export default defineComponent({
 }
 .calc_tab {
   padding-top: 1.6rem;
+  @media (min-width: 40rem) {
+    display: grid;
+    grid-template-columns: 1fr 8rem 1fr;
+    justify-items: center;
+    align-items: center;;
+    padding-bottom: 5rem
+  }
+}
+.vector {
+  display: none;
+  @media (min-width: 40rem) {
+    display: inline;
+  }
 }
 .independently {
   margin-top: 4rem;
@@ -679,16 +699,24 @@ export default defineComponent({
   line-height: 88%;
   text-align: center;
   color: #282828;
+  @media (min-width: 40rem) {
+    font-size: 1.8rem;
+    text-align: left;
+  }
 }
 .private {
   padding-top: 2rem;
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 88%;
   text-align: center;
   color: #f6a607;
+  @media (min-width: 40rem) {
+    font-size: 2.8rem;
+    text-align: left;
+  }
 }
 .phone {
   padding-top: 1.6rem;
@@ -699,6 +727,10 @@ export default defineComponent({
   line-height: 88%;
   text-align: center;
   color: #282828;
+  @media (min-width: 40rem) {
+    font-size: 2.8rem;
+    text-align: left;
+  }  
 }
 .free {
   font-family: 'Inter', arial, sans-serif;
@@ -710,5 +742,10 @@ export default defineComponent({
   letter-spacing: -0.025em;
   color: #808080;
   padding-bottom: 5rem;
+  @media (min-width: 40rem) {
+    padding-top: 1rem;
+    font-size: 1.4rem;
+    text-align: left;
+  }    
 }
 </style>

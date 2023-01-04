@@ -126,7 +126,7 @@
     line-height: 100%;
     text-align: center;
     color: #444247;
-    display: inline;
+    display: block;
     font-size: 3.6rem;
   }
   // 1200px
