@@ -1,98 +1,100 @@
 <template>
-  <div :class="$style.title_mobile">
-    <div>Преимущества</div>
-    <div>онлайн-платформы</div>
-    <div>«Отличные Наличные»</div>
-  </div>
-  <div :class="$style.title">
-    <div>Преимущества онлайн-платформы</div>
-    <div>«Отличные Наличные»</div>
-  </div>
-  <div :class="$style.root">
-    <div :class="$style.block">
-      <div :class="$style.header">
-        <img
-          src="/crown.svg"
-          alt="Выдаем деньги на любую карту"
-          :class="$style.header_icon"
-        />
-        <div :class="$style.header_title">Выдаем деньги на любую карту</div>
-      </div>
-      <div :class="$style.body">
-        Переводим деньги на карту любого банка платёжных систем Visa, Mastercard, Мир, а
-        также на платёжную карту нашего сервиса «Отличная Карта».
-      </div>
+  <div>
+    <div :class="$style.title_mobile">
+      <div>Преимущества</div>
+      <div>онлайн-платформы</div>
+      <div>«Отличные Наличные»</div>
     </div>
-    <div :class="$style.block">
-      <div :class="$style.header">
-        <img
-          src="/internet.svg"
-          alt="Работаем везде, где есть интернет"
-          :class="$style.header_icon"
-        />
-        <div :class="$style.header_title">Работаем везде, где есть интернет</div>
-      </div>
-      <div :class="$style.body">
-        Получайте и гасите займ онлайн. Сервис доступен из любого города или населённого
-        пункта России, с телефона, планшета, ноутбука или стационарного компьютера.
-      </div>
+    <div :class="$style.title">
+      <div>Преимущества онлайн-платформы</div>
+      <div>«Отличные Наличные»</div>
     </div>
-    <div :class="$style.block">
-      <div :class="$style.header">
-        <img
-          src="/doc.svg"
-          alt="Работаем под контролем ЦБ РФ"
-          :class="$style.header_icon"
-        />
-        <div :class="$style.header_title">Работаем под контролем ЦБ РФ</div>
+    <div :class="$style.root">
+      <div :class="$style.block">
+        <div :class="$style.header">
+          <img
+            src="/crown.svg"
+            alt="Выдаем деньги на любую карту"
+            :class="$style.header_icon"
+          />
+          <div :class="$style.header_title">Выдаем деньги на любую карту</div>
+        </div>
+        <div :class="$style.body">
+          Переводим деньги на карту любого банка платёжных систем Visa, Mastercard, Мир, а
+          также на платёжную карту нашего сервиса «Отличная Карта».
+        </div>
       </div>
-      <div :class="$style.body">
-        Микрокредитная компания осуществляет свою деятельность под контролем Центрального
-        банка РФ и находится в реестре микрофинансовых организаций.
+      <div :class="$style.block">
+        <div :class="$style.header">
+          <img
+            src="/internet.svg"
+            alt="Работаем везде, где есть интернет"
+            :class="$style.header_icon"
+          />
+          <div :class="$style.header_title">Работаем везде, где есть интернет</div>
+        </div>
+        <div :class="$style.body">
+          Получайте и гасите займ онлайн. Сервис доступен из любого города или населённого
+          пункта России, с телефона, планшета, ноутбука или стационарного компьютера.
+        </div>
       </div>
-    </div>
-    <div :class="$style.block">
-      <div :class="$style.header">
-        <img
-          src="/lock.svg"
-          alt="Обеспечиваем защиту ваших данных"
-          :class="$style.header_icon"
-        />
-        <div :class="$style.header_title">Обеспечиваем защиту ваших данных</div>
+      <div :class="$style.block">
+        <div :class="$style.header">
+          <img
+            src="/doc.svg"
+            alt="Работаем под контролем ЦБ РФ"
+            :class="$style.header_icon"
+          />
+          <div :class="$style.header_title">Работаем под контролем ЦБ РФ</div>
+        </div>
+        <div :class="$style.body">
+          Микрокредитная компания осуществляет свою деятельность под контролем
+          Центрального банка РФ и находится в реестре микрофинансовых организаций.
+        </div>
       </div>
-      <div :class="$style.body">
-        Ваши персональные данные и операции с картой надежно защищены в соответствии с
-        законодательством РФ. Не передаем ваши данные третьим лицам без вашего согласия.
+      <div :class="$style.block">
+        <div :class="$style.header">
+          <img
+            src="/lock.svg"
+            alt="Обеспечиваем защиту ваших данных"
+            :class="$style.header_icon"
+          />
+          <div :class="$style.header_title">Обеспечиваем защиту ваших данных</div>
+        </div>
+        <div :class="$style.body">
+          Ваши персональные данные и операции с картой надежно защищены в соответствии с
+          законодательством РФ. Не передаем ваши данные третьим лицам без вашего согласия.
+        </div>
       </div>
-    </div>
-    <div :class="$style.block">
-      <div :class="$style.header">
-        <img
-          src="/done-one.svg"
-          alt="Предлагаем займ в любом случае"
-          :class="$style.header_icon"
-        />
-        <div :class="$style.header_title">Предлагаем займ в любом случае</div>
+      <div :class="$style.block">
+        <div :class="$style.header">
+          <img
+            src="/done-one.svg"
+            alt="Предлагаем займ в любом случае"
+            :class="$style.header_icon"
+          />
+          <div :class="$style.header_title">Предлагаем займ в любом случае</div>
+        </div>
+        <div :class="$style.body">
+          Если мы не сможем выдать займ или вам не подойдут условия, тогда мы предложим
+          вам другую компанию. На нашей онлайн-платформе вы найдете предложение с
+          вероятностью 100%.
+        </div>
       </div>
-      <div :class="$style.body">
-        Если мы не сможем выдать займ или вам не подойдут условия, тогда мы предложим вам
-        другую компанию. На нашей онлайн-платформе вы найдете предложение с вероятностью
-        100%.
-      </div>
-    </div>
-    <div :class="$style.block">
-      <div :class="$style.header">
-        <img
-          src="/doc-del.svg"
-          alt="Не требуем справок о доходах"
-          :class="$style.header_icon"
-        />
-        <div :class="$style.header_title">Не требуем справок о доходах</div>
-      </div>
-      <div :class="$style.body">
-        Для принятия решения о выдаче займа нам не нужны справки, подтверждающие ваш
-        доход, иные дополнительные документы или поручители. Нужен только паспорт
-        гражданина РФ.
+      <div :class="$style.block">
+        <div :class="$style.header">
+          <img
+            src="/doc-del.svg"
+            alt="Не требуем справок о доходах"
+            :class="$style.header_icon"
+          />
+          <div :class="$style.header_title">Не требуем справок о доходах</div>
+        </div>
+        <div :class="$style.body">
+          Для принятия решения о выдаче займа нам не нужны справки, подтверждающие ваш
+          доход, иные дополнительные документы или поручители. Нужен только паспорт
+          гражданина РФ.
+        </div>
       </div>
     </div>
   </div>
