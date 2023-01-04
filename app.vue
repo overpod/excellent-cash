@@ -7,5 +7,8 @@
   </client-only>
   <Excellence />
 
-  <GetMoneyInMinutes/>
+  <ActivityToday />
+  <client-only>
+    <GetMoneyInMinutes />
+  </client-only>
 </template>
