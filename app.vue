@@ -11,4 +11,5 @@
   <client-only>
     <GetMoneyInMinutes />
   </client-only>
+  <Footer/>
 </template>
