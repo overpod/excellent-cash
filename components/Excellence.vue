@@ -131,7 +131,6 @@
     display: block;
     font-size: 3.6rem;
   }
-  // 1200px
   @media (min-width: 75rem) {
     font-size: 5.2rem;
     padding: 10rem 6rem 0 6rem;
@@ -150,7 +149,6 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
   }
-  // 1200px
   @media (min-width: 75rem) {
     padding: 6rem;
   }
@@ -178,11 +176,9 @@
   font-size: 2.2rem;
   line-height: 100%;
   color: #282828;
-  // 320px
   @media (min-width: 40rem) {
     font-size: 2.6rem;
   }
-  // 960px
   @media (min-width: 60rem) {
     font-size: 3.2rem;
   }

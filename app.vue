@@ -6,10 +6,10 @@
     <Calculate />
   </client-only>
   <Excellence />
-
   <ActivityToday />
   <client-only>
     <GetMoneyInMinutes />
   </client-only>
+  <FAQ/>
   <Footer/>
 </template>
