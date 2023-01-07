@@ -10,6 +10,7 @@
   <client-only>
     <GetMoneyInMinutes />
   </client-only>
+  <HowRepayLoan />
   <FAQ/>
   <Footer/>
 </template>
