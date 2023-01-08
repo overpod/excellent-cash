@@ -11,6 +11,7 @@
     <GetMoneyInMinutes />
   </client-only>
   <HowRepayLoan />
-  <FAQ/>
-  <Footer/>
+  <FAQ />
+  <Reviews />
+  <Footer />
 </template>
