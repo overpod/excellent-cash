@@ -11,7 +11,7 @@
       <div>в {{ time }}</div>
     </h1>
     <div :class="$style.button_wrap">
-      <a href="https://lk.otlnal.ru/login/">
+      <a href="https://lk.otlnal.ru/registration/">
         <div :class="$style.button">Получить деньги</div>
       </a>
     </div>

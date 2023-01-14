@@ -166,7 +166,7 @@
         </div>
       </template>
       <div :class="$style.button_wrap" v-if="tabIndex !== 4">
-        <a href="https://lk.otlnal.ru/login/"
+        <a href="https://lk.otlnal.ru/registration/"
           ><div :class="$style.button_link">Взять займ</div></a
         >
         <div :class="$style.button_title">
@@ -204,7 +204,7 @@
               {{ time }}</span
             >
           </div>
-          <a href="https://lk.otlnal.ru/login/"
+          <a href="https://lk.otlnal.ru/registration/"
             ><div :class="[$style.button_link, $style.button_link_desktop]">
               Взять займ
             </div></a
@@ -270,7 +270,7 @@
             <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
             <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
           </div>
-          <a href="https://lk.otlnal.ru/login/"
+          <a href="https://lk.otlnal.ru/registration/"
             ><div :class="[$style.button_link, $style.button_link_desktop]">
               Взять займ
             </div></a
