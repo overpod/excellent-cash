@@ -70,7 +70,7 @@
     padding-top: 22rem;
   }
   @media (min-width: 75rem) {
-    padding-top: 10rem;
+    padding-top: 14rem;
   }
   @media (min-width: 90rem) {
     padding-top: 18rem;
@@ -106,8 +106,8 @@
     right: -24rem;
   }
   @media (min-width: 75rem) {
-    top: -42rem;
-    right: -24rem;    
+    top: -52rem;
+    right: -32rem;    
   }
   @media (min-width: 90rem) {
     top: -54rem;
