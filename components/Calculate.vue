@@ -77,7 +77,7 @@
         <div :class="$style.info_mobile">
           <span :class="$style.info_label">Вы получаете</span>
           <span :class="$style.info_value"
-            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
+            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br/>сегодня в
             {{ time }}</span
           >
           <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
