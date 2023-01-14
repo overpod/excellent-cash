@@ -4,7 +4,11 @@
     <div :class="$style.main">
       <div :class="$style.content">
         <div :class="$style.top">
-          <img :class="$style.main_icon" src="/people.svg" alt="Личный кабинет наличных" />
+          <img
+            :class="$style.main_icon"
+            src="/people.svg"
+            alt="Личный кабинет наличных"
+          />
           <div :class="$style.header_title">Личный кабинет наличных»</div>
         </div>
         <div :class="$style.main_text">
@@ -31,7 +35,11 @@
       </div>
       <div :class="$style.content">
         <div :class="$style.top">
-          <img :class="$style.main_icon" src="/corona.svg" alt="Платёжный сервис «Золотая корона»" />
+          <img
+            :class="$style.main_icon"
+            src="/corona.svg"
+            alt="Платёжный сервис «Золотая корона»"
+          />
           <div :class="$style.header_title">Платёжный сервис «Золотая корона»</div>
         </div>
         <div :class="$style.main_text">
@@ -46,12 +54,16 @@
             по ссылке</a
           >
           и введите в строке поиска нужное юридическое лицо, указанное в вашем договоре
-          займа. Выберите подходящий способ погашения и произведите платеж.
+          займа.<br />Выберите подходящий способ погашения и произведите платеж.
         </div>
       </div>
       <div :class="$style.content">
         <div :class="$style.top">
-          <img :class="$style.main_icon" src="/contract.svg" alt="По реквизитам договора займа" />
+          <img
+            :class="$style.main_icon"
+            src="/contract.svg"
+            alt="По реквизитам договора займа"
+          />
           <div :class="$style.header_title">По реквизитам договора займа</div>
         </div>
         <div :class="$style.main_text">
