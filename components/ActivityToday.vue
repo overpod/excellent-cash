@@ -14,7 +14,7 @@
         <div>
           <h2 :class="[$style.get_title, $style.get_title_all]">Попробуй и ты</h2>
           <a href="https://lk.otlnal.ru/registration/"
-            ><div :class="[$style.get, $style.get_all]">Взять займ</div></a
+            ><div :class="[$style.get, $style.get_all]">Получить деньги</div></a
           >
         </div>
       </div>
@@ -24,7 +24,7 @@
     </div>
     <h2 :class="$style.get_title">Попробуй и ты</h2>
     <a href="https://lk.otlnal.ru/registration/"
-      ><div :class="$style.get">Взять займ</div></a
+      ><div :class="$style.get">Получить деньги</div></a
     >
   </div>
 </template>
