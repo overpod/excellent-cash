@@ -60,6 +60,12 @@ export default defineComponent({
       },
       {
         id: 5,
+        question: 'Почему мне одобрили займ на меньшую сумму, чем я запрашивал?',
+        answer:
+          'Наша система может одобрить сумму ниже в связи с индивидуальной ситуацией и платежеспособностью заемщика. Выдавая займ, мы должны быть уверены, что клиент способен вернуть его вовремя.',
+      },
+      {
+        id: 6,
         question: 'Как быстро будет рассмотрена моя заявка на заем?',
         answer:
           'Результат отразится в личном кабинете примерно через минуту после завершения оформления. Лишь в некоторых случаях нам требуется дополнительное время, чтобы принять решение. Если произошла задержка, вы можете задать вопрос из личного кабинета, указав тему сообщения «Скорость рассмотрения заявки».',
@@ -102,7 +108,7 @@ export default defineComponent({
   }
   @media (min-width: 60rem) {
     padding: 9rem 4rem;
-  }  
+  }
 }
 .header {
   font-family: 'Circe', arial, sans-serif;
@@ -117,7 +123,7 @@ export default defineComponent({
   }
   @media (min-width: 60rem) {
     font-size: 5.2rem;
-  }  
+  }
 }
 .content {
   margin-top: 3rem;
@@ -139,7 +145,7 @@ export default defineComponent({
   }
   @media (min-width: 60rem) {
     padding-top: 4rem;
-  }  
+  }
 }
 .card_first {
   padding-top: 0;
@@ -162,7 +168,7 @@ export default defineComponent({
   }
   @media (min-width: 60rem) {
     font-size: 2.8rem;
-  }  
+  }
 }
 .answer {
   font-family: 'Inter';
@@ -179,7 +185,7 @@ export default defineComponent({
   }
   @media (min-width: 60rem) {
     font-size: 2rem;
-  }  
+  }
 }
 .answer_active {
   display: block;

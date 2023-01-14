@@ -9,7 +9,7 @@
             src="/people.svg"
             alt="Личный кабинет наличных"
           />
-          <div :class="$style.header_title">Личный кабинет наличных»</div>
+          <div :class="$style.header_title">Личный кабинет наличных</div>
         </div>
         <div :class="$style.main_text">
           Авторизуйтесь
