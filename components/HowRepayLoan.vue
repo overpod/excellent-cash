@@ -25,7 +25,7 @@
             rel="stylesheet"
             href="https://lk.otlnal.ru/login/"
             target="_blank"
-            >в мобильном приложении</a
+            >в приложении</a
           >и проведите платеж со своей карты платежной системы Visa,MasterCard или МИР.
         </div>
       </div>
