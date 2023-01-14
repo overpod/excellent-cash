@@ -159,7 +159,9 @@
           </div>
           <div>
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-            <div :class="$style.private">в личном кабинете</div>
+            <a href="https://lk.otlnal.ru/login/"
+              ><div :class="$style.private">в личном кабинете</div></a
+            >
             <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
@@ -361,7 +363,9 @@
           </div>
           <div>
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-            <div :class="$style.private">в личном кабинете</div>
+            <a href="https://lk.otlnal.ru/login/"
+              ><div :class="$style.private">в личном кабинете</div></a
+            >
             <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
