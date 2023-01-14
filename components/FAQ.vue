@@ -11,7 +11,7 @@
           <img
             src="/up-light.svg"
             alt="Ответ"
-            :class="[curentAnswer?.id === answer.id && $style.arrow_acrive]"
+            :class="[$style.arrow, curentAnswer?.id === answer.id && $style.arrow_acrive]"
           />
         </div>
         <div
@@ -193,7 +193,10 @@ export default defineComponent({
 .answer_last {
   border-bottom: none;
 }
-.arrow_acrive {
+.arrow {
   transform: rotate(180deg);
+}
+.arrow_acrive {
+  transform: none;
 }
 </style>
