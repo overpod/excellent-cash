@@ -1,13 +1,9 @@
 <template>
   <div :class="$style.root">
-    <a href="https://lk.otlnal.ru/login/">
-      <img src="/logo.svg" alt="Отличные Наличные" :class="$style.logo_img" />
-    </a>
+    <img src="/logo.svg" alt="Отличные Наличные" :class="$style.logo_img" />
     <div :class="$style.login">
-      <a href="https://lk.otlnal.ru/login/">
-        <img src="/sign.svg" alt="Отличные наличные вход" :class="$style.sign"/>
-        <div :class="$style.login_title">Личный кабинет</div>
-      </a>
+      <img src="/sign.svg" alt="Отличные наличные вход" :class="$style.sign" />
+      <div :class="$style.login_title">Личный кабинет</div>
     </div>
   </div>
 </template>
