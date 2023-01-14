@@ -15,7 +15,7 @@
         <span :class="$style.text">Укажите реквизиты карты</span>
       </div>
       <div :class="$style.title">
-        <img src="/3.svg" alt="Переведём деньги на карту" :class="$style.icon" />
+        <img src="/4.svg" alt="Переведём деньги на карту" :class="$style.icon" />
         <span :class="$style.text">Переведём деньги на карту</span>
       </div>
     </div>
@@ -39,7 +39,7 @@
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   line-height: 100%;
   text-align: center;
   color: #ffffff;
