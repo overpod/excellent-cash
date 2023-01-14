@@ -77,7 +77,7 @@
         <div :class="$style.info_mobile">
           <span :class="$style.info_label">Вы получаете</span>
           <span :class="$style.info_value"
-            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br/>сегодня в
+            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br />сегодня в
             {{ time }}</span
           >
           <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
@@ -332,14 +332,17 @@
 
       <template v-if="tabIndex === 4">
         <div :class="[$style.calc, $style.calc_tab, $style.calc_tab_desktop]">
-          <div>
+          <div :class="$style.info">
             <div :class="$style.label">
               <img
                 src="/vector.svg"
                 alt="Получить новый займ"
                 :class="$style.labe_icon"
               />
-              <span>Получить новый займ<br />на индивидуальных условиях</span>
+              <span
+                >Получить новый займ <br :class="$style.br" />на индивидуальных
+                условиях</span
+              >
             </div>
             <div :class="$style.label">
               <img
@@ -347,7 +350,7 @@
                 alt="Получить новый займ"
                 :class="$style.labe_icon"
               />
-              <span>Увеличить лимит<br />до необходимой суммы</span>
+              <span>Увеличить лимит<br :class="$style.br" />до необходимой суммы</span>
             </div>
             <div :class="$style.label">
               <img
@@ -355,18 +358,20 @@
                 alt="Получить новый займ"
                 :class="$style.labe_icon"
               />
-              <span>Перенести срок возврата<br />займа</span>
+              <span>Перенести срок возврата<br :class="$style.br" />займа</span>
             </div>
           </div>
           <div :class="$style.vector">
             <img src="/right-arrow.svg" alt="Получить новый займ" />
           </div>
-          <div>
+          <div :class="$style.info_two">
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
             <a href="https://lk.otlnal.ru/login/"
               ><div :class="$style.private">в личном кабинете</div></a
             >
-            <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
+            <div :class="$style.phone">
+              позвонив <br :class="$style.br" />на 8 (800) 600 700
+            </div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
         </div>
@@ -941,7 +946,7 @@ export default defineComponent({
   padding-top: 6rem;
 }
 .br_mobile {
-  display: inline;
+  display: block;
   @media (min-width: 40rem) {
     display: none;
   }
@@ -958,6 +963,13 @@ export default defineComponent({
   color: #808080;
   text-underline-offset: 0.5rem;
 }
+.info {
+  min-width: 51rem;
+  padding-bottom: 5rem;
+}
+.info_two {
+  width: 100%;
+}
 .label {
   display: flex;
   padding-top: 2rem;
@@ -973,6 +985,12 @@ export default defineComponent({
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #282828;
+}
+.br {
+  display: block;
+  @media (min-width: 40rem) {
+    display: none;
+  }
 }
 .calc_tab {
   padding-top: 1.6rem;
