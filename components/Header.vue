@@ -2,8 +2,10 @@
   <div :class="$style.root">
     <img src="/logo.svg" alt="Отличные Наличные" :class="$style.logo_img" />
     <div :class="$style.login">
-      <img src="/sign.svg" alt="Отличные наличные вход" :class="$style.sign" />
-      <div :class="$style.login_title">Личный кабинет</div>
+      <a href="https://lk.otlnal.ru/login/">
+        <img src="/sign.svg" alt="Отличные наличные вход" :class="$style.sign" />
+        <div :class="$style.login_title">Личный кабинет</div>
+      </a>
     </div>
   </div>
 </template>
