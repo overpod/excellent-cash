@@ -14,7 +14,7 @@
         <img src="/3.svg" alt="Укажите реквизиты карты" :class="$style.icon" />
         <span :class="$style.text">Укажите реквизиты карты</span>
       </div>
-      <div :class="$style.title">
+      <div :class="[$style.title, $style.last_title]">
         <img src="/4.svg" alt="Переведём деньги на карту" :class="$style.icon" />
         <span :class="$style.text">Переведём деньги на карту</span>
       </div>
@@ -65,6 +65,23 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    &::before {
+      content: ' ';
+      display: block;
+      width: 53%;
+      height: 0.1rem;
+      background-color: #027f25;
+      position: relative;
+      top: 3rem;
+      left: 50%;
+    }
+  }
+}
+.last_title {
+  @media (min-width: 60rem) {
+    &::before {
+      display: none;
+    }
   }
 }
 .icon {
