@@ -49,8 +49,8 @@ export default defineComponent({
       })
     );
     setInterval(() => {
-      bids.value = bids.value + getRandomInt(80, 100);
-    }, 6000);
+      bids.value = bids.value + getRandomInt(1, 10);
+    }, 5000);
 
     const issuedLoans = ref(16278000);
     const issuedLoansTitle = computed(() =>
@@ -62,8 +62,8 @@ export default defineComponent({
       })
     );
     setInterval(() => {
-      issuedLoans.value = issuedLoans.value + getRandomInt(5000, 15000);
-    }, 6000);
+      issuedLoans.value = issuedLoans.value + getRandomInt(8000, 10000);
+    }, 10000);
 
     const tookTheMoney = ref(1052);
     const tookTheMoneyTitle = computed(() =>
@@ -73,8 +73,8 @@ export default defineComponent({
       })
     );
     setInterval(() => {
-      tookTheMoney.value = tookTheMoney.value + getRandomInt(2, 10);
-    }, 6000);
+      tookTheMoney.value = tookTheMoney.value + getRandomInt(1, 3);
+    }, 10000);
 
     return {
       bidsTitle,
