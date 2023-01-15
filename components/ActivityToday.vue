@@ -44,8 +44,6 @@ export default defineComponent({
     const bids = ref(4988);
     const bidsTitle = computed(() =>
       bids.value.toLocaleString('ru-RU', {
-        style: 'currency',
-        currency: 'RUB',
         minimumFractionDigits: 0,
         maximumFractionDigits: 0,
       })
