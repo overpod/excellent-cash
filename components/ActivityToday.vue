@@ -184,7 +184,7 @@ export default defineComponent({
     display: block;
     text-align: left;
   }
-  @media (min-width: 40rem) {
+  @media (min-width: 60rem) {
     font-size: 4.6rem;
     padding-bottom: 2.4rem;
   }
