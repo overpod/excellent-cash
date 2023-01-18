@@ -218,7 +218,7 @@ export default defineComponent({
   }
 }
 .right {
-  @media (min-width: 60rem) {
+  @media (min-width: 40rem) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
