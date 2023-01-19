@@ -53,6 +53,10 @@ export default defineComponent({
       bids.value = bids.value + getRandomInt(5, 10);
     }, 5000);
 
+    const randomNumberMultiples = (min: number, max: number, num: number) => {
+      return Math.floor(Math.floor(Math.random() * (max - min + 1) + min) / num) * num;
+    };
+
     const issuedLoans = ref(16278000);
     const issuedLoansTitle = computed(() =>
       issuedLoans.value.toLocaleString('ru-RU', {
@@ -63,7 +67,7 @@ export default defineComponent({
       })
     );
     setInterval(() => {
-      issuedLoans.value = issuedLoans.value + getRandomInt(30000, 90000);
+      issuedLoans.value = issuedLoans.value + randomNumberMultiples(30000, 90000, 1000);
     }, 10000);
 
     const tookTheMoney = ref(1052);
