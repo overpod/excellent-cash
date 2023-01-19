@@ -20,6 +20,7 @@
       </div>
       <div :class="$style.left">
         <img src="/tape.svg" alt="Уже оформили" :class="$style.image" />
+        <img src="/tape_1200.svg" alt="Уже оформили" :class="$style.image_960" />
       </div>
     </div>
     <h2 :class="$style.get_title">Попробуй и ты</h2>
@@ -235,10 +236,13 @@ export default defineComponent({
     width: 31.4rem;
   }
   @media (min-width: 60rem) {
-    width: 48.8rem;
+    display: none;
   }
-  @media (min-width: 75rem) {
-    width: 56rem;
+}
+.image_960 {
+  display: none;
+  @media (min-width: 60rem) {
+    display: block;
   }
 }
 </style>
