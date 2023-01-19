@@ -154,9 +154,11 @@
               <span>Перенести срок возврата<br />займа</span>
             </div>
           </div>
-          <div :class="$style.vector">
-            <img src="/right-arrow.svg" alt="Получить новый займ" />
-          </div>
+          <a href="https://lk.otlnal.ru/login/">
+            <div :class="$style.vector">
+              <img src="/right-arrow.svg" alt="Получить новый займ" />
+            </div>
+          </a>
           <div>
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
             <a href="https://lk.otlnal.ru/login/"
@@ -361,9 +363,11 @@
               <span>Перенести срок возврата<br :class="$style.br" />займа</span>
             </div>
           </div>
-          <div :class="$style.vector">
-            <img src="/right-arrow.svg" alt="Получить новый займ" />
-          </div>
+          <a href="https://lk.otlnal.ru/login/">
+            <div :class="$style.vector">
+              <img src="/right-arrow.svg" alt="Получить новый займ" />
+            </div>
+          </a>
           <div :class="$style.info_two">
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
             <a href="https://lk.otlnal.ru/login/"
@@ -1003,6 +1007,8 @@ export default defineComponent({
   }
 }
 .calc_tab_desktop {
+  z-index: 5;
+  position: relative;
   @media (min-width: 60rem) {
     padding: 5rem 4rem;
     border-radius: 0 0 3.5rem 3.5rem;
