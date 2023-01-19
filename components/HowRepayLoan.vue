@@ -7,9 +7,9 @@
           <img
             :class="$style.main_icon"
             src="/people.svg"
-            alt="Личный кабинет наличных"
+            alt="Личный кабинет «Отличных наличных»"
           />
-          <div :class="$style.header_title">Личный кабинет наличных</div>
+          <div :class="$style.header_title">Личный кабинет «Отличных наличных»</div>
         </div>
         <div :class="$style.main_text">
           Авторизуйтесь
@@ -187,6 +187,9 @@
   @media (min-width: 60rem) {
     font-size: 3.2rem;
   }
+  @media (min-width: 75rem) {
+    font-size: 3.2rem;
+  }
 }
 
 .main_text {
@@ -206,7 +209,6 @@
   }
   @media (min-width: 75rem) {
     padding-top: 3.2rem;
-    font-size: 2.2rem;
   }
 }
 
