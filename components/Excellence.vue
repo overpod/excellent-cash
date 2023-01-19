@@ -168,6 +168,18 @@
 .header_icon {
   width: 5rem;
   padding-right: 1rem;
+  @media (min-width: 40rem) {
+    width: 6rem;
+    padding-right: 1.3rem;
+  }
+  @media (min-width: 60rem) {
+    width: 6.3rem;
+    padding-right: 1.3rem;
+  }
+  @media (min-width: 75rem) {
+    width: 9rem;
+    padding-right: 2.4rem;
+  }      
 }
 .header_title {
   font-family: 'Circe', arial, sans-serif;
