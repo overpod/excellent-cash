@@ -137,25 +137,36 @@
     padding: 4rem 5rem;
     gap: 5.2rem 4rem;
   }
-  @media (min-width: 90rem) {
+  @media (min-width: 75rem) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 0;
   } 
 }
 .benefit_first {
+  @media (min-width: 75rem) {
+    border-right: #39af5c 0.1rem solid;
+    padding-right: 1.8rem;
+  }  
   @media (min-width: 90rem) {
     border-right: #39af5c 0.1rem solid;
     padding-right: 3rem;
   }
 }
 .benefit {
+  @media (min-width: 75rem) {
+    border-right: #39af5c 0.1rem solid;
+    padding: 0 1.8rem;
+  }  
   @media (min-width: 90rem) {
     border-right: #39af5c 0.1rem solid;
     padding: 0 3rem;
   }
 }
 .benefit_last {
+  @media (min-width: 75rem) {
+    padding-left: 1.8rem;
+  }  
   @media (min-width: 90rem) {
     padding-left: 3rem;
   }
