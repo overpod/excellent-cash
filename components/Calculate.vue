@@ -649,7 +649,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 6rem 3.6rem 3rem 3.6rem;
+  padding: 6rem 2rem 3rem 2rem;
   @media (min-width: 40rem) {
     padding: 5rem 4rem 3rem 4rem;
   }
@@ -752,7 +752,7 @@ export default defineComponent({
 
 .calc {
   background-color: #fff;
-  padding: 3.6rem 3.6rem 0 3.6rem;
+  padding: 2rem 3.6rem 0 2rem;
   @media (min-width: 42.8rem) {
     padding: 0 3.6rem;
   }
@@ -800,7 +800,7 @@ export default defineComponent({
 
 .info_mobile {
   padding-top: 3.4rem;
-  padding: 3.4rem 3.6rem 0 3.6rem;
+  padding: 2rem 3.6rem 0 2rem;
   background-color: #fff;
   display: grid;
   grid-template-columns: 1fr;
@@ -916,7 +916,7 @@ export default defineComponent({
   background-color: #f6f6f6;
 }
 .button_wrap {
-  padding: 5rem 3.6rem 5rem 3.6rem;
+  padding: 5rem 2rem 5rem 2rem;
   background-color: #fff;
   @media (min-width: 40rem) {
     padding: 4rem;
