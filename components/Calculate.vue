@@ -174,7 +174,7 @@
           ><div :class="$style.button_link">Взять займ</div></a
         >
         <div :class="$style.button_title">
-          на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2 304
+          на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2 304
           клиента
         </div>
       </div>
@@ -299,7 +299,7 @@
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
           </div>
           <div :class="[$style.button_title, $style.button_title_1200]">
-            на карту за 15 минут<br :class="$style.br_mobile" />сегодня получили займ 2
+            на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2
             304 клиента
           </div>
         </div>
@@ -941,7 +941,7 @@ export default defineComponent({
   font-family: 'Inter', arial, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #808080;
