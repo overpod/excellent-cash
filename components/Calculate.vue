@@ -2,7 +2,7 @@
   <div>
     <div :class="$style.root">
       <div :class="$style.title_wrap">
-        <h2 :class="$style.title_mobile">Выберите сумму<br />и срок займа</h2>
+        <h2 :class="$style.title_mobile">Выберите сумму <br/>и срок займа</h2>
         <h2 :class="$style.title">Выберите сумму и срок займа</h2>
       </div>
       <div :class="$style.select_wrap" v-click-away="onClickAway">
@@ -699,7 +699,7 @@ export default defineComponent({
   font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   line-height: 100%;
   margin: 0;
   display: inline;
