@@ -9,7 +9,7 @@
             src="/people.svg"
             alt="Личный кабинет «Отличных наличных»"
           />
-          <div :class="$style.header_title">Личный кабинет «Отличных наличных»</div>
+          <div :class="$style.header_title">Личный кабинет <br :class="$style.br_320_960" />«Отличных наличных»</div>
         </div>
         <div :class="$style.main_text">
           Авторизуйтесь
@@ -40,7 +40,7 @@
             src="/corona.svg"
             alt="Платёжный сервис «Золотая корона»"
           />
-          <div :class="$style.header_title">Платёжный сервис «Золотая корона»</div>
+          <div :class="$style.header_title">Платёжный сервис <br :class="$style.br_320_960" />«Золотая корона»</div>
         </div>
         <div :class="$style.main_text">
           Перейдите
@@ -64,7 +64,7 @@
             src="/contract.svg"
             alt="По реквизитам договора займа"
           />
-          <div :class="$style.header_title">По реквизитам договора займа</div>
+          <div :class="$style.header_title">По реквизитам <br :class="$style.br_320_960" />договора займа</div>
         </div>
         <div :class="$style.main_text">
           В договоре займа указаны реквизиты юридического лица, на счет которого вы можете
@@ -79,7 +79,7 @@
             src="/crown.svg"
             alt="Банковская карта любого банка"
           />
-          <div :class="$style.header_title">Банковская карта любого банка</div>
+          <div :class="$style.header_title">Банковская карта <br :class="$style.br_320_960" />любого банка</div>
         </div>
         <div :class="$style.main_text">
           Если вы знаете, что можете забыть внести платеж по займу в нужную дату,
@@ -92,6 +92,16 @@
 </template>
 
 <style lang="scss" module>
+.br_320_960 {
+  display: block;
+  @media (min-width: 40rem) {
+    display: none;
+  }
+  @media (min-width: 60rem) {
+    display: block;
+  }
+}
+
 .root {
   padding: 4rem 2rem;
   background-color: #fff;
