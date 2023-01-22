@@ -868,7 +868,7 @@ export default defineComponent({
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.8rem;
   line-height: 88%;
   color: #282828;
 }
