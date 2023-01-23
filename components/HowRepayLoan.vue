@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.root">
-    <h2 :class="$style.title">Как погаcить займ?</h2>
+    <h2 :class="$style.title">Как погашать займ?</h2>
     <div :class="$style.main">
       <div :class="$style.content">
         <div :class="$style.top">
@@ -32,7 +32,7 @@
             href="https://lk.otlnal.ru/login/"
             target="_blank"
             >в приложении</a
-          >и проведите платеж со своей карты платежной системы Visa,MasterCard или МИР.
+          >и проведите платеж со своей карты платежной системы Visa, MasterCard или МИР.
         </div>
       </div>
       <div :class="$style.content">
