@@ -2,7 +2,7 @@
   <div>
     <div :class="$style.root">
       <div :class="$style.title_wrap">
-        <h2 :class="$style.title_mobile">Выберите сумму <br/>и срок займа</h2>
+        <h2 :class="$style.title_mobile">Выберите сумму <br />и срок займа</h2>
         <h2 :class="$style.title">Выберите сумму и срок займа</h2>
       </div>
       <div :class="$style.select_wrap" v-click-away="onClickAway">
@@ -77,51 +77,32 @@
         <div :class="$style.info_mobile">
           <span :class="$style.info_label">Вы получаете</span>
           <span :class="$style.info_value"
-            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br />сегодня в
-            {{ time }}</span
+            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br />сегодня в {{ time }}</span
           >
           <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
-          <span v-if="tabIndex !== 3" :class="$style.info_value"
-            >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
-          >
+          <span v-if="tabIndex !== 3" :class="$style.info_value">{{ totalTitle.sum }} до {{ totalTitle.date }}</span>
           <span v-if="tabIndex === 3" :class="$style.info_value">
             {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
           </span>
-          <a
-            v-if="tabIndex === 3"
-            href="https://lk.otlnal.ru/registration"
-            target="_blank"
+          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
             ><div :class="$style.button_chart">График выплат</div>
           </a>
         </div>
         <div :class="$style.info_all">
           <div :class="$style.info_all_left">
             <span :class="$style.info_all_title">Вы получаете</span>
-            <span :class="$style.info_all_value">{{
-              formattedSum(tabResult.sum, tabParams.sumCurrency)
-            }}</span>
+            <span :class="$style.info_all_value">{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}</span>
             <span :class="$style.info_all_value">сегодня в {{ time }}</span>
-            <a
-              v-if="tabIndex === 3"
-              href="https://lk.otlnal.ru/registration"
-              target="_blank"
+            <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
               ><div :class="$style.button_chart">График выплат</div>
             </a>
           </div>
           <div :class="$style.info_all_right">
             <span :class="$style.info_all_title">Вы возвращаете</span>
-            <span v-if="tabIndex !== 3" :class="$style.info_all_value">{{
-              totalTitle.sum
-            }}</span>
-            <span v-if="tabIndex !== 3" :class="$style.info_all_value"
-              >до {{ totalTitle.date }}</span
-            >
-            <span v-if="tabIndex === 3" :class="$style.info_all_value">{{
-              totalTitle.oneTitle
-            }}</span>
-            <span v-if="tabIndex === 3" :class="$style.info_all_value"
-              >{{ totalTitle.twoTitle }} каждые</span
-            >
+            <span v-if="tabIndex !== 3" :class="$style.info_all_value">{{ totalTitle.sum }}</span>
+            <span v-if="tabIndex !== 3" :class="$style.info_all_value">до {{ totalTitle.date }}</span>
+            <span v-if="tabIndex === 3" :class="$style.info_all_value">{{ totalTitle.oneTitle }}</span>
+            <span v-if="tabIndex === 3" :class="$style.info_all_value">{{ totalTitle.twoTitle }} каждые</span>
             <span v-if="tabIndex === 3" :class="$style.info_all_value">две недели</span>
           </div>
         </div>
@@ -130,27 +111,15 @@
         <div :class="[$style.calc, $style.calc_tab]">
           <div>
             <div :class="$style.label">
-              <img
-                src="/vector.svg"
-                alt="Получить новый займ"
-                :class="$style.labe_icon"
-              />
+              <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
               <span>Получить новый займ<br />на индивидуальных условиях</span>
             </div>
             <div :class="$style.label">
-              <img
-                src="/vector.svg"
-                alt="Получить новый займ"
-                :class="$style.labe_icon"
-              />
+              <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
               <span>Увеличить лимит<br />до необходимой суммы</span>
             </div>
             <div :class="$style.label">
-              <img
-                src="/vector.svg"
-                alt="Получить новый займ"
-                :class="$style.labe_icon"
-              />
+              <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
               <span>Перенести срок возврата<br />займа</span>
             </div>
           </div>
@@ -161,21 +130,16 @@
           </a>
           <div>
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-            <a href="https://lk.otlnal.ru/login/"
-              ><div :class="$style.private">в личном кабинете</div></a
-            >
+            <a href="https://lk.otlnal.ru/login/"><div :class="$style.private">в личном кабинете</div></a>
             <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
         </div>
       </template>
       <div :class="$style.button_wrap" v-if="tabIndex !== 4">
-        <a href="https://lk.otlnal.ru/registration/"
-          ><div :class="$style.button_link">Взять займ</div></a
-        >
+        <a href="https://lk.otlnal.ru/registration/"><div :class="$style.button_link">Взять займ</div></a>
         <div :class="$style.button_title">
-          на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2 304
-          клиента
+          на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2 304 клиента
         </div>
       </div>
     </div>
@@ -200,18 +164,13 @@
             <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
           </div>
           <div :class="$style.info_all_left">
-            <span :class="[$style.info_all_title, $style.info_all_title_desktop]"
-              >Вы получаете</span
-            >
+            <span :class="[$style.info_all_title, $style.info_all_title_desktop]">Вы получаете</span>
             <span :class="$style.info_all_value"
-              >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
-              {{ time }}</span
+              >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в {{ time }}</span
             >
           </div>
           <a href="https://lk.otlnal.ru/registration/"
-            ><div :class="[$style.button_link, $style.button_link_desktop]">
-              Взять займ
-            </div></a
+            ><div :class="[$style.button_link, $style.button_link_desktop]">Взять займ</div></a
           >
         </div>
         <div>
@@ -232,24 +191,13 @@
             <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
           </div>
-          <span
-            :class="[
-              $style.info_label,
-              $style.two_info_label,
-              $style.two_info_label_desktop,
-            ]"
-            >Вы возвращаете</span
-          >
-          <span v-if="tabIndex !== 3" :class="[$style.info_value]"
-            >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
-          >
+          <span :class="[$style.info_label, $style.two_info_label, $style.two_info_label_desktop]">Вы возвращаете</span>
+          <span v-if="tabIndex !== 3" :class="[$style.info_value]">{{ totalTitle.sum }} до {{ totalTitle.date }}</span>
           <span v-if="tabIndex === 3" :class="$style.info_value">
             {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
           </span>
-          <a
-            v-if="tabIndex === 3"
-            href="https://lk.otlnal.ru/registration"
-            target="_blank"
+          <div :class="[$style.button_title, $style.button_title_960]">на карту за 15 минут <br />сегодня получили займ 2 304 клиента</div>
+          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
             ><div :class="$style.button_chart">График выплат</div>
           </a>
         </div>
@@ -275,9 +223,7 @@
             <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
           </div>
           <a href="https://lk.otlnal.ru/registration/"
-            ><div :class="[$style.button_link, $style.button_link_desktop]">
-              Взять займ
-            </div></a
+            ><div :class="[$style.button_link, $style.button_link_desktop]">Взять займ</div></a
           >
         </div>
         <div>
@@ -299,34 +245,20 @@
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
           </div>
           <div :class="[$style.button_title, $style.button_title_1200]">
-            на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2
-            304 клиента
+            на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2 304 клиента
           </div>
         </div>
         <div>
           <span :class="[$style.info_all_title, $style.info_1200]">Вы получаете</span>
           <span :class="$style.info_all_value"
-            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в
-            {{ time }}</span
+            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в {{ time }}</span
           >
-          <span
-            :class="[
-              $style.info_label,
-              $style.two_info_label,
-              $style.two_info_label_desktop,
-            ]"
-            >Вы возвращаете</span
-          >
-          <span v-if="tabIndex !== 3" :class="[$style.info_value]"
-            >{{ totalTitle.sum }} до {{ totalTitle.date }}</span
-          >
+          <span :class="[$style.info_label, $style.two_info_label, $style.two_info_label_desktop]">Вы возвращаете</span>
+          <span v-if="tabIndex !== 3" :class="[$style.info_value]">{{ totalTitle.sum }} до {{ totalTitle.date }}</span>
           <span v-if="tabIndex === 3" :class="$style.info_value">
             {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
           </span>
-          <a
-            v-if="tabIndex === 3"
-            href="https://lk.otlnal.ru/registration"
-            target="_blank"
+          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
             ><div :class="$style.button_chart">График выплат</div>
           </a>
         </div>
@@ -336,30 +268,15 @@
         <div :class="[$style.calc, $style.calc_tab, $style.calc_tab_desktop]">
           <div :class="$style.info">
             <div :class="$style.label">
-              <img
-                src="/vector.svg"
-                alt="Получить новый займ"
-                :class="$style.labe_icon"
-              />
-              <span
-                >Получить новый займ <br :class="$style.br" />на индивидуальных
-                условиях</span
-              >
+              <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
+              <span>Получить новый займ <br :class="$style.br" />на индивидуальных условиях</span>
             </div>
             <div :class="$style.label">
-              <img
-                src="/vector.svg"
-                alt="Получить новый займ"
-                :class="$style.labe_icon"
-              />
+              <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
               <span>Увеличить лимит<br :class="$style.br" />до необходимой суммы</span>
             </div>
             <div :class="$style.label">
-              <img
-                src="/vector.svg"
-                alt="Получить новый займ"
-                :class="$style.labe_icon"
-              />
+              <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
               <span>Перенести срок возврата<br :class="$style.br" />займа</span>
             </div>
           </div>
@@ -370,12 +287,8 @@
           </a>
           <div :class="$style.info_two">
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-            <a href="https://lk.otlnal.ru/login/"
-              ><div :class="$style.private">в личном кабинете</div></a
-            >
-            <div :class="$style.phone">
-              позвонив <br :class="$style.br" />на 8 (800) 600 700
-            </div>
+            <a href="https://lk.otlnal.ru/login/"><div :class="$style.private">в личном кабинете</div></a>
+            <div :class="$style.phone">позвонив <br :class="$style.br" />на 8 (800) 600 700</div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
         </div>
@@ -555,11 +468,7 @@ export default defineComponent({
       return {
         sum: formattedSum(totalSum, tabParams.value.sumCurrency),
         date: null,
-        oneTitle: `${paymentsCount} ${plural(paymentsCount, [
-          'платеж',
-          'платежа',
-          'платежей',
-        ])}`,
+        oneTitle: `${paymentsCount} ${plural(paymentsCount, ['платеж', 'платежа', 'платежей'])}`,
         twoTitle: `по ${formattedSum(totalSum, tabParams.value.sumCurrency)}`,
       };
     });
@@ -609,11 +518,7 @@ export default defineComponent({
         if (tabResult.value.period <= tabParams.value.freeDays) {
           sum = tabResult.value.sum;
         } else {
-          sum =
-            tabResult.value.sum +
-            (tabResult.value.sum / 100) *
-              tabParams.value.percent *
-              tabResult.value.period;
+          sum = tabResult.value.sum + (tabResult.value.sum / 100) * tabParams.value.percent * tabResult.value.period;
         }
       }
       return parseInt(sum.toString());
@@ -945,6 +850,9 @@ export default defineComponent({
   line-height: 150%;
   letter-spacing: -0.025em;
   color: #808080;
+}
+.button_title_960 {
+  padding-top: 5rem;
 }
 .button_title_1200 {
   padding-top: 6rem;

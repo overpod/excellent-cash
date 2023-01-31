@@ -111,7 +111,7 @@
   }
   @media (min-width: 90rem) {
     top: -54rem;
-    right: -24rem;   
+    right: -42rem;   
   }  
 }
 .benefits {
