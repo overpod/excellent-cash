@@ -132,6 +132,7 @@ export default defineComponent({
   }
   @media (min-width: 60rem) {
     padding-top: 6rem;
+    column-gap: 4.2rem;
   }
 }
 .value {

@@ -627,6 +627,9 @@ export default defineComponent({
   @media (min-width: 60rem) {
     font-size: 4.5rem;
   }
+  @media (min-width: 90rem) {
+    font-size: 5.2rem;
+  }
 }
 
 .title_wrap {
