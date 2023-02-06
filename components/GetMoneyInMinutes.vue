@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.root">
-    <h2 :class="$style.header">Получите деньги через 15 минут</h2>
+    <h2 :class="$style.header">Получите деньги через <br :class="$style.br_mobile" />15 минут</h2>
     <div :class="$style.content">
       <div :class="$style.title">
         <img src="/1.svg" alt="Заполните короткую заявку" :class="$style.icon" />
@@ -23,6 +23,12 @@
 </template>
 
 <style lang="scss" module>
+.br_mobile {
+  display: block;
+  @media (min-width: 40rem) {
+    display: none;
+  }
+}
 .root {
   background-color: #41c24c;
   padding: 4rem 2rem;
