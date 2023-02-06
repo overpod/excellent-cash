@@ -120,7 +120,7 @@
             </div>
             <div :class="$style.label">
               <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-              <span>Перенести срок возврата<br />займа</span>
+              <span>Перенести срок возврата <br />займа</span>
             </div>
           </div>
           <a href="https://lk.otlnal.ru/login/">
@@ -139,7 +139,7 @@
       <div :class="$style.button_wrap" v-if="tabIndex !== 4">
         <a href="https://lk.otlnal.ru/registration/"><div :class="$style.button_link">Взять займ</div></a>
         <div :class="$style.button_title">
-          на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2 304 клиента
+          на карту за 15 минут <br :class="$style.br_mobile" />
         </div>
       </div>
     </div>
@@ -245,7 +245,7 @@
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
           </div>
           <div :class="[$style.button_title, $style.button_title_1200]">
-            на карту за 15 минут <br :class="$style.br_mobile" />сегодня получили займ 2 304 клиента
+            на карту за 15 минут <br :class="$style.br_mobile" />
           </div>
         </div>
         <div>
@@ -277,7 +277,7 @@
             </div>
             <div :class="$style.label">
               <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-              <span>Перенести срок возврата<br :class="$style.br" />займа</span>
+              <span>Перенести срок возврата <br :class="$style.br" />займа</span>
             </div>
           </div>
           <a href="https://lk.otlnal.ru/login/">

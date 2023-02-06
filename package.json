@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@vueform/slider": "^2.1.7",
-    "@vueuse/core": "^9.11.0",
+    "@vueuse/core": "^9.12.0",
     "vue3-click-away": "^1.2.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "nuxt": "3.0.0",
+    "nuxt": "3.1.2",
     "postcss": "^8.4.21",
-    "sass": "^1.57.1",
+    "sass": "^1.58.0",
     "sass-loader": "13",
     "tailwindcss": "^3.2.4"
   }
