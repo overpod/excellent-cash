@@ -45,7 +45,7 @@
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   line-height: 100%;
   text-align: center;
   color: #ffffff;
