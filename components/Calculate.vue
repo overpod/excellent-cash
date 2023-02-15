@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="$style.root">
+    <div :class="$style.root" ref="start">
       <div :class="$style.title_wrap">
         <h2 :class="$style.title_mobile">Выберите сумму <br />и срок займа</h2>
         <h2 :class="$style.title">Выберите сумму и срок займа</h2>
@@ -13,11 +13,8 @@
         <Transition name="fade">
           <div v-show="tabShowSelect" :class="$style.tabs_wrap">
             <div :class="$style.tabs">
-              <div
-                :class="[$style.tab, index === 1 && $style.tab_active]"
-                v-for="(tab, index) in tabList"
-                @click="tabClick(tab.id)"
-              >
+              <div :class="[$style.tab, index === 1 && $style.tab_active]" v-for="(tab, index) in tabList"
+                @click="tabClick(tab.id)">
                 {{ tab.title }}
               </div>
             </div>
@@ -26,11 +23,8 @@
       </div>
     </div>
     <div :class="$style.desktop_tabs">
-      <div
-        v-for="tab in tabs"
-        :class="[$style.desktop_tab, tab.id === tabIndex && $style.desktop_tab_active]"
-        @click="tabClick(tab.id)"
-      >
+      <div v-for="tab in tabs" :class="[$style.desktop_tab, tab.id === tabIndex && $style.desktop_tab_active]"
+        @click="tabClick(tab.id)">
         {{ tab.title }}
       </div>
     </div>
@@ -41,15 +35,8 @@
           <div :class="$style.calc_value">
             {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
           </div>
-          <Slider
-            v-model="tabResult.sum"
-            :min="tabParams.minSum"
-            :max="tabParams.maxSum"
-            :step="tabParams.sumStep"
-            :tooltips="false"
-            :class="$style.slider"
-            :lazy="false"
-          />
+          <Slider v-model="tabResult.sum" :min="tabParams.minSum" :max="tabParams.maxSum" :step="tabParams.sumStep"
+            :tooltips="false" :class="$style.slider" :lazy="false" />
           <div :class="$style.min_max">
             <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
             <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
@@ -60,15 +47,8 @@
           <div :class="$style.calc_value">
             {{ formattedPeriod(tabResult.period) }}
           </div>
-          <Slider
-            v-model="tabResult.period"
-            :min="tabParams.minPeriod"
-            :max="tabParams.maxPeriod"
-            :step="tabParams.periodStep"
-            :tooltips="false"
-            :class="$style.slider"
-            :lazy="false"
-          />
+          <Slider v-model="tabResult.period" :min="tabParams.minPeriod" :max="tabParams.maxPeriod"
+            :step="tabParams.periodStep" :tooltips="false" :class="$style.slider" :lazy="false" />
           <div :class="$style.min_max">
             <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
@@ -76,16 +56,16 @@
         </div>
         <div :class="$style.info_mobile">
           <span :class="$style.info_label">Вы получаете</span>
-          <span :class="$style.info_value"
-            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br />сегодня в {{ time }}</span
-          >
+          <span :class="$style.info_value">{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}<br />сегодня в {{
+            time
+          }}</span>
           <span :class="[$style.info_label, $style.two_info_label]">Вы возвращаете</span>
           <span v-if="tabIndex !== 3" :class="$style.info_value">{{ totalTitle.sum }} до {{ totalTitle.date }}</span>
           <span v-if="tabIndex === 3" :class="$style.info_value">
             {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
           </span>
-          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
-            ><div :class="$style.button_chart">График выплат</div>
+          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank">
+            <div :class="$style.button_chart">График выплат</div>
           </a>
         </div>
         <div :class="$style.info_all">
@@ -93,8 +73,8 @@
             <span :class="$style.info_all_title">Вы получаете</span>
             <span :class="$style.info_all_value">{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}</span>
             <span :class="$style.info_all_value">сегодня в {{ time }}</span>
-            <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
-              ><div :class="$style.button_chart">График выплат</div>
+            <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank">
+              <div :class="$style.button_chart">График выплат</div>
             </a>
           </div>
           <div :class="$style.info_all_right">
@@ -130,14 +110,18 @@
           </a>
           <div>
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-            <a href="https://lk.otlnal.ru/login/"><div :class="$style.private">в личном кабинете</div></a>
+            <a href="https://lk.otlnal.ru/login/">
+              <div :class="$style.private">в личном кабинете</div>
+            </a>
             <div :class="$style.phone">позвонив<br />на 8 (800) 600 700</div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
         </div>
       </template>
       <div :class="$style.button_wrap" v-if="tabIndex !== 4">
-        <a href="https://lk.otlnal.ru/registration/"><div :class="$style.button_link">Взять займ</div></a>
+        <a href="https://lk.otlnal.ru/registration/">
+          <div :class="$style.button_link">Взять займ</div>
+        </a>
         <div :class="$style.button_title">
           на карту за 15 минут <br :class="$style.br_mobile" />
         </div>
@@ -150,43 +134,29 @@
           <div :class="$style.calc_value">
             {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
           </div>
-          <Slider
-            v-model="tabResult.sum"
-            :min="tabParams.minSum"
-            :max="tabParams.maxSum"
-            :step="tabParams.sumStep"
-            :tooltips="false"
-            :class="$style.slider"
-            :lazy="false"
-          />
+          <Slider v-model="tabResult.sum" :min="tabParams.minSum" :max="tabParams.maxSum" :step="tabParams.sumStep"
+            :tooltips="false" :class="$style.slider" :lazy="false" />
           <div :class="$style.min_max">
             <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
             <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
           </div>
           <div :class="$style.info_all_left">
             <span :class="[$style.info_all_title, $style.info_all_title_desktop]">Вы получаете</span>
-            <span :class="$style.info_all_value"
-              >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в {{ time }}</span
-            >
+            <span :class="$style.info_all_value">{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в {{
+              time
+            }}</span>
           </div>
-          <a href="https://lk.otlnal.ru/registration/"
-            ><div :class="[$style.button_link, $style.button_link_desktop]">Взять займ</div></a
-          >
+          <a href="https://lk.otlnal.ru/registration/">
+            <div :class="[$style.button_link, $style.button_link_desktop]">Взять займ</div>
+          </a>
         </div>
         <div>
           <div :class="$style.calc_title">Срок займа</div>
           <div :class="$style.calc_value">
             {{ formattedPeriod(tabResult.period) }}
           </div>
-          <Slider
-            v-model="tabResult.period"
-            :min="tabParams.minPeriod"
-            :max="tabParams.maxPeriod"
-            :step="tabParams.periodStep"
-            :tooltips="false"
-            :class="$style.slider"
-            :lazy="false"
-          />
+          <Slider v-model="tabResult.period" :min="tabParams.minPeriod" :max="tabParams.maxPeriod"
+            :step="tabParams.periodStep" :tooltips="false" :class="$style.slider" :lazy="false" />
           <div :class="$style.min_max">
             <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
@@ -196,9 +166,10 @@
           <span v-if="tabIndex === 3" :class="$style.info_value">
             {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
           </span>
-          <div :class="[$style.button_title, $style.button_title_960]">на карту за 15 минут <br />сегодня получили займ 2 304 клиента</div>
-          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
-            ><div :class="$style.button_chart">График выплат</div>
+          <div :class="[$style.button_title, $style.button_title_960]">на карту за 15 минут <br />сегодня получили займ
+            2 304 клиента</div>
+          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank">
+            <div :class="$style.button_chart">График выплат</div>
           </a>
         </div>
       </div>
@@ -209,37 +180,23 @@
           <div :class="$style.calc_value">
             {{ formattedSum(tabResult.sum, tabParams.sumCurrency) }}
           </div>
-          <Slider
-            v-model="tabResult.sum"
-            :min="tabParams.minSum"
-            :max="tabParams.maxSum"
-            :step="tabParams.sumStep"
-            :tooltips="false"
-            :class="$style.slider"
-            :lazy="false"
-          />
+          <Slider v-model="tabResult.sum" :min="tabParams.minSum" :max="tabParams.maxSum" :step="tabParams.sumStep"
+            :tooltips="false" :class="$style.slider" :lazy="false" />
           <div :class="$style.min_max">
             <span>{{ formattedSum(tabParams.minSum, tabParams.sumCurrency) }}</span>
             <span>{{ formattedSum(tabParams.maxSum, tabParams.sumCurrency) }}</span>
           </div>
-          <a href="https://lk.otlnal.ru/registration/"
-            ><div :class="[$style.button_link, $style.button_link_desktop]">Взять займ</div></a
-          >
+          <a href="https://lk.otlnal.ru/registration/">
+            <div :class="[$style.button_link, $style.button_link_desktop]">Взять займ</div>
+          </a>
         </div>
         <div>
           <div :class="$style.calc_title">Срок займа</div>
           <div :class="$style.calc_value">
             {{ formattedPeriod(tabResult.period) }}
           </div>
-          <Slider
-            v-model="tabResult.period"
-            :min="tabParams.minPeriod"
-            :max="tabParams.maxPeriod"
-            :step="tabParams.periodStep"
-            :tooltips="false"
-            :class="$style.slider"
-            :lazy="false"
-          />
+          <Slider v-model="tabResult.period" :min="tabParams.minPeriod" :max="tabParams.maxPeriod"
+            :step="tabParams.periodStep" :tooltips="false" :class="$style.slider" :lazy="false" />
           <div :class="$style.min_max">
             <span>{{ formattedPeriod(tabParams.minPeriod) }}</span>
             <span>{{ formattedPeriod(tabParams.maxPeriod) }}</span>
@@ -250,16 +207,16 @@
         </div>
         <div>
           <span :class="[$style.info_all_title, $style.info_1200]">Вы получаете</span>
-          <span :class="$style.info_all_value"
-            >{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в {{ time }}</span
-          >
+          <span :class="$style.info_all_value">{{ formattedSum(tabResult.sum, tabParams.sumCurrency) }} сегодня в {{
+            time
+          }}</span>
           <span :class="[$style.info_label, $style.two_info_label, $style.two_info_label_desktop]">Вы возвращаете</span>
           <span v-if="tabIndex !== 3" :class="[$style.info_value]">{{ totalTitle.sum }} до {{ totalTitle.date }}</span>
           <span v-if="tabIndex === 3" :class="$style.info_value">
             {{ totalTitle.oneTitle }} {{ totalTitle.twoTitle }} каждые две недели
           </span>
-          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank"
-            ><div :class="$style.button_chart">График выплат</div>
+          <a v-if="tabIndex === 3" href="https://lk.otlnal.ru/registration" target="_blank">
+            <div :class="$style.button_chart">График выплат</div>
           </a>
         </div>
       </div>
@@ -287,7 +244,9 @@
           </a>
           <div :class="$style.info_two">
             <div :class="$style.independently">Вы можете сделать самостоятельно:</div>
-            <a href="https://lk.otlnal.ru/login/"><div :class="$style.private">в личном кабинете</div></a>
+            <a href="https://lk.otlnal.ru/login/">
+              <div :class="$style.private">в личном кабинете</div>
+            </a>
             <div :class="$style.phone">позвонив <br :class="$style.br" />на 8 (800) 600 700</div>
             <div :class="$style.free">бесплатно и круглосуточно</div>
           </div>
@@ -298,7 +257,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ref, onMounted, nextTick } from 'vue';
 import Slider from '@vueform/slider';
 import { directive } from 'vue3-click-away';
 
@@ -322,6 +281,20 @@ export default defineComponent({
     clickAway: directive,
   },
   setup() {
+    const start = ref<HTMLDivElement | null>(null);
+
+    onMounted(() => {
+
+      window.addEventListener("load", (event) => {
+        if (start.value) {
+          start.value.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      });
+    });
+
     const time = ref(getTime());
 
     setInterval(() => {
@@ -481,8 +454,8 @@ export default defineComponent({
         num % 10 === 1 && num % 100 !== 11
           ? 0
           : num % 10 >= 2 && num % 10 <= 4 && (num % 100 < 10 || num % 100 >= 20)
-          ? 1
-          : 2;
+            ? 1
+            : 2;
 
       switch (plural) {
         case 0:
@@ -525,6 +498,7 @@ export default defineComponent({
     };
 
     return {
+      start,
       tabs,
       time,
       tabIndex,
@@ -544,7 +518,9 @@ export default defineComponent({
 });
 </script>
 
-<style src="@vueform/slider/themes/default.css"></style>
+<style src="@vueform/slider/themes/default.css">
+
+</style>
 
 <style lang="scss" module>
 .root {
@@ -555,26 +531,32 @@ export default defineComponent({
   justify-content: center;
   flex-direction: column;
   padding: 6rem 2rem 3rem 2rem;
+
   @media (min-width: 40rem) {
     padding: 5rem 4rem 3rem 4rem;
   }
+
   @media (min-width: 60rem) {
     padding: 9rem 4rem 5rem 4rem;
   }
 }
+
 .mobile_tabs {
   @media (min-width: 60rem) {
     display: none;
   }
 }
+
 .desktop_tab_wrap {
   display: none;
+
   @media (min-width: 60rem) {
     display: block;
     background-color: #41c24c;
     padding: 0 4rem 5rem 4rem;
   }
 }
+
 .desktop_tab_body {
   background-color: #fff;
   display: grid;
@@ -582,6 +564,7 @@ export default defineComponent({
   padding: 5rem 4rem;
   border-radius: 0 0 3.5rem 3.5rem;
   column-gap: 8rem;
+
   @media (min-width: 75rem) {
     display: none;
   }
@@ -589,6 +572,7 @@ export default defineComponent({
 
 .desktop_tab_body_1200 {
   display: none;
+
   @media (min-width: 75rem) {
     display: block;
     background-color: #fff;
@@ -608,6 +592,7 @@ export default defineComponent({
   line-height: 100%;
   margin: 0;
   display: inline;
+
   @media (min-width: 40rem) {
     display: none;
   }
@@ -621,12 +606,15 @@ export default defineComponent({
   line-height: 100%;
   margin: 0;
   display: none;
+
   @media (min-width: 40rem) {
     display: block;
   }
+
   @media (min-width: 60rem) {
     font-size: 4.5rem;
   }
+
   @media (min-width: 90rem) {
     font-size: 5.2rem;
   }
@@ -640,6 +628,7 @@ export default defineComponent({
 .select_wrap {
   width: 100%;
   z-index: 2;
+
   @media (min-width: 60rem) {
     display: none;
   }
@@ -661,9 +650,11 @@ export default defineComponent({
 .calc {
   background-color: #fff;
   padding: 2rem 3.6rem 0 2rem;
+
   @media (min-width: 42.8rem) {
     padding: 0 3.6rem;
   }
+
   @media (min-width: 40rem) {
     padding: 3rem 4rem 0 4rem;
   }
@@ -712,6 +703,7 @@ export default defineComponent({
   background-color: #fff;
   display: grid;
   grid-template-columns: 1fr;
+
   @media (min-width: 40rem) {
     display: none;
   }
@@ -720,12 +712,14 @@ export default defineComponent({
 .info_all {
   background-color: #fff;
   display: none;
+
   @media (min-width: 40rem) {
     display: flex;
     padding: 3.4rem 4rem 0 4rem;
     justify-content: space-between;
   }
 }
+
 .info_all_left {
   display: flex;
   flex-direction: column;
@@ -746,12 +740,15 @@ export default defineComponent({
   color: #808080;
   padding-bottom: 2rem;
 }
+
 .info_all_title_desktop {
   padding-top: 3.6rem;
 }
+
 .info_1200 {
   display: block;
 }
+
 .info_all_value {
   font-family: 'Circe', arial, sans-serif;
   font-style: normal;
@@ -823,13 +820,16 @@ export default defineComponent({
 .tab_active {
   background-color: #f6f6f6;
 }
+
 .button_wrap {
   padding: 5rem 2rem 5rem 2rem;
   background-color: #fff;
+
   @media (min-width: 40rem) {
     padding: 4rem;
   }
 }
+
 .button_link {
   background-color: #f6a607;
   border-radius: 1.6rem;
@@ -839,11 +839,13 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 }
+
 .button_link_desktop {
   @media (min-width: 60rem) {
     margin-top: 6rem;
   }
 }
+
 .button_title {
   padding-top: 2rem;
   font-family: 'Inter', arial, sans-serif;
@@ -854,18 +856,23 @@ export default defineComponent({
   letter-spacing: -0.025em;
   color: #808080;
 }
+
 .button_title_960 {
   padding-top: 5rem;
 }
+
 .button_title_1200 {
   padding-top: 6rem;
 }
+
 .br_mobile {
   display: block;
+
   @media (min-width: 40rem) {
     display: none;
   }
 }
+
 .button_chart {
   margin-top: 2rem;
   font-family: 'Inter', arial, sans-serif;
@@ -878,20 +885,25 @@ export default defineComponent({
   color: #808080;
   text-underline-offset: 0.5rem;
 }
+
 .info {
   min-width: 51rem;
   padding-bottom: 5rem;
 }
+
 .info_two {
   width: 100%;
 }
+
 .label {
   display: flex;
   padding-top: 2rem;
 }
+
 .labe_icon {
   margin-right: 2rem;
 }
+
 .label_text {
   font-family: 'Inter', arial, sans-serif;
   font-style: normal;
@@ -901,14 +913,18 @@ export default defineComponent({
   letter-spacing: -0.025em;
   color: #282828;
 }
+
 .br {
   display: block;
+
   @media (min-width: 40rem) {
     display: none;
   }
 }
+
 .calc_tab {
   padding-top: 1.6rem;
+
   @media (min-width: 40rem) {
     display: grid;
     grid-template-columns: 1fr 8rem 1fr;
@@ -917,20 +933,25 @@ export default defineComponent({
     padding-bottom: 5rem;
   }
 }
+
 .calc_tab_desktop {
   z-index: 5;
   position: relative;
+
   @media (min-width: 60rem) {
     padding: 5rem 4rem;
     border-radius: 0 0 3.5rem 3.5rem;
   }
 }
+
 .vector {
   display: none;
+
   @media (min-width: 40rem) {
     display: inline;
   }
 }
+
 .independently {
   margin-top: 4rem;
   font-family: 'Circe', arial, sans-serif;
@@ -940,11 +961,13 @@ export default defineComponent({
   line-height: 88%;
   text-align: center;
   color: #282828;
+
   @media (min-width: 40rem) {
     font-size: 1.8rem;
     text-align: left;
   }
 }
+
 .private {
   padding-top: 2rem;
   font-family: 'Circe', arial, sans-serif;
@@ -954,11 +977,13 @@ export default defineComponent({
   line-height: 88%;
   text-align: center;
   color: #f6a607;
+
   @media (min-width: 40rem) {
     font-size: 2.8rem;
     text-align: left;
   }
 }
+
 .phone {
   padding-top: 1.6rem;
   font-family: 'Circe', arial, sans-serif;
@@ -968,11 +993,13 @@ export default defineComponent({
   line-height: 88%;
   text-align: center;
   color: #282828;
+
   @media (min-width: 40rem) {
     font-size: 2.8rem;
     text-align: left;
   }
 }
+
 .free {
   font-family: 'Inter', arial, sans-serif;
   font-style: normal;
@@ -983,14 +1010,17 @@ export default defineComponent({
   letter-spacing: -0.025em;
   color: #808080;
   padding-bottom: 5rem;
+
   @media (min-width: 40rem) {
     padding-top: 1rem;
     font-size: 1.4rem;
     text-align: left;
   }
 }
+
 .desktop_tabs {
   display: none;
+
   @media (min-width: 60rem) {
     display: block;
     padding: 0 4rem;
@@ -1000,6 +1030,7 @@ export default defineComponent({
     column-gap: 0.2rem;
   }
 }
+
 .desktop_tab {
   background: #027f25;
   border-radius: 1.6rem 1.6rem 0 0;
@@ -1010,6 +1041,7 @@ export default defineComponent({
   cursor: pointer;
   z-index: 2;
 }
+
 .desktop_tab_active {
   color: #444247;
   background-color: #fff;
