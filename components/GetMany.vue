@@ -69,7 +69,7 @@ export default defineComponent({
     font-size: 8rem;
   }
   @media (min-width: 75rem) {
-    padding-top: 13.4rem;
+    padding-top: 8.5rem;
     font-size: 8rem;
   }
 }
