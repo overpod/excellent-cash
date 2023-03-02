@@ -96,7 +96,7 @@
             </div>
             <div :class="$style.label">
               <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-              <span>Увеличить лимит<br />до необходимой суммы</span>
+              <span>Увеличить лимит<br /> до необходимой суммы</span>
             </div>
             <div :class="$style.label">
               <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
@@ -230,7 +230,7 @@
             </div>
             <div :class="$style.label">
               <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
-              <span>Увеличить лимит<br :class="$style.br" />до необходимой суммы</span>
+              <span>Увеличить лимит<br :class="$style.br" /> до необходимой суммы</span>
             </div>
             <div :class="$style.label">
               <img src="/vector.svg" alt="Получить новый займ" :class="$style.labe_icon" />
